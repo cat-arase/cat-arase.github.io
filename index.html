@@ -94,26 +94,22 @@
             padding: 0 2rem;
         }
         
-        h1 {
-            color: #222;
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
-        }
-        
         h2 {
             color: #0066cc;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
             border-bottom: 3px solid #0066cc;
             padding-bottom: 0.5rem;
+            font-size: 2rem;
         }
         
         p {
             margin-bottom: 1rem;
             line-height: 1.8;
+            font-size: 1.05rem;
         }
         
-        .highlight-card {
+        .about-section {
             background: white;
             padding: 2rem;
             border-radius: 8px;
@@ -121,29 +117,119 @@
             margin-bottom: 2rem;
         }
         
-        .feature-grid {
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
             margin: 2rem 0;
         }
         
-        .feature-card {
+        .skill-category {
             background: white;
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            text-align: center;
+        }
+        
+        .skill-category h3 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .skill-category li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-category li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+        }
+        
+        /* HIGHLIGHTED PROJECTS */
+        .featured-project {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border-left: 5px solid #667eea;
             transition: transform 0.3s;
         }
         
-        .feature-card:hover {
+        .featured-project:hover {
             transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
-        .feature-card h3 {
-            color: #0066cc;
+        .featured-project h3 {
+            color: #222;
             margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .project-badge {
+            display: inline-block;
+            background-color: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tag {
+            background-color: #e0e0e0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #333;
+        }
+        
+        .project-link {
+            display: inline-block;
+            color: #667eea;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        
+        .view-all-button {
+            display: inline-block;
+            background-color: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .view-all-button:hover {
+            background-color: #764ba2;
         }
         
         /* FOOTER */
@@ -154,14 +240,22 @@
             padding: 2rem;
             margin-top: 3rem;
         }
+        
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body>
     <!-- NAVIGATION -->
     <nav>
         <a href="index.html" class="active">Cat Arase</a>
-        <a href="engineering-projects.html">Engineering</a>
-        <a href="personal-projects.html">Personal</a>
+        <a href="highlights.html">Highlights</a>
         <a href="research.html">Research</a>
         <a href="teaching.html">Teaching</a>
         <a href="resume.html">Resume</a>
@@ -172,59 +266,30 @@
         <h1>Cat Arase</h1>
         <p>Mechanical Engineer | MIT Student</p>
         <p>Materials Testing • Mechanical Design • Data Analysis</p>
-        <a href="engineering-projects.html" class="cta-button">View Work</a>
     </div>
 
     <!-- MAIN CONTENT -->
     <div class="container">
-        <div class="highlight-card">
-            <h2>Welcome</h2>
-            <p>Hi! I’m Cat Arase, and I am a graduate student in Mechanical Engineering at MIT. I design and build things across multiple scales, media, and techniques. I have always enjoyed hands-on projects and love to mentor others in their pursuits to tackle their own projects.</p>
+        
+        <!-- ABOUT ME SECTION -->
+        <h2>About Me</h2>
+        
+        <div class="about-section">
+            <p>Hi! I'm Cat Arase, a mechanical engineering student at MIT passionate about materials testing, failure analysis, and building cool mechanical systems. I love translating complex engineering problems into data-driven solutions and am committed to rigorous analysis and creative design.</p>
+            
+            <p>Whether it's analyzing material behavior under load, designing mechanical components, or processing experimental data, I approach every project with curiosity, precision, and a commitment to excellence.</p>
+            
+            <h3 style="color: #0066cc; margin-top: 1.5rem; margin-bottom: 1rem;">Education</h3>
+            <p><strong>Massachusetts Institute of Technology (MIT)</strong></p>
+            <p>Bachelor of Science in Mechanical Engineering</p>
+            <p style="font-size: 0.95rem; color: #666;">Expected May 2025</p>
         </div>
-
-        <h2>Explore My Work</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>🔧 Engineering Projects</h3>
-                <p>CAD designs, FEA simulations, and mechanical analysis</p>
-                <a href="engineering-projects.html" style="color: #0066cc; font-weight: bold; text-decoration: none;">View →</a>
-            </div>
-            
-            <div class="feature-card">
-                <h3>💡 Personal Projects</h3>
-                <p>Side projects and creative engineering solutions</p>
-                <a href="personal-projects.html" style="color: #0066cc; font-weight: bold; text-decoration: none;">View →</a>
-            </div>
-            
-            <div class="feature-card">
-                <h3>📚 Research & Publications</h3>
-                <p>Academic research and technical papers</p>
-                <a href="research.html" style="color: #0066cc; font-weight: bold; text-decoration: none;">View →</a>
-            </div>
-            
-            <div class="feature-card">
-                <h3>🎓 Teaching & Mentoring</h3>
-                <p>Educational initiatives and mentoring work</p>
-                <a href="teaching.html" style="color: #0066cc; font-weight: bold; text-decoration: none;">View →</a>
-            </div>
-            
-            <div class="feature-card">
-                <h3>📄 Resume</h3>
-                <p>Complete CV and professional background</p>
-                <a href="resume.html" style="color: #0066cc; font-weight: bold; text-decoration: none;">View →</a>
-            </div>
-            
-            <div class="feature-card">
-                <h3>📧 Contact</h3>
-                <p>Get in touch for collaborations</p>
-                
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2024 Cat Arase. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+        
+        <h3 style="color: #0066cc; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;">Technical Skills</h3>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Analysis & Testing</h3>
+                <ul>
+                    <li>Materials Testing</li>
+                    <li>Failure Analysis</li>
+                    <li>Data Analysis</li>
