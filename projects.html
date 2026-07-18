@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Projects - Cat Arase Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- LOAD HEADER -->
+    <div id="header"></div>
+
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+                // Update active link to projects
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                const projectsLink = Array.from(document.querySelectorAll('nav a')).find(a => a.textContent === 'All Projects');
+                if (projectsLink) projectsLink.classList.add('active');
+            });
+    </script>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h2>All Projects</h2>
+
+        <!-- FILTER BUTTONS -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="highlights">Highlights</button>
+            <button class="filter-btn" data-filter="engineering">Engineering</button>
+            <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
+            <button class="filter-btn" data-filter="teaching">Teaching</button>
+            <button class="filter-btn" data-filter="research">Research</button>
+        </div>
+
+        <!-- PROJECTS GRID -->
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will load here via JavaScript -->
+        </div>
+
+        <div id="noProjects" class="no-projects" style="display:none;">
+            No projects found in this category.
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Cat Arase. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let allProjects = [];
+        let currentFilter = 'all';
+
+        // Load projects data
+        fetch('projects-data.json')
+            .then(response => response.json())
+            .then(data => {
+                allProjects = data.projects;
+                renderProjects();
+            })
+            .catch(error => console.error('Error loading projects:', error));
+
+        // Filter button listeners
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                renderProjects();
+            });
+        });
+
+        function renderProjects() {
+            const grid = document.getElementById('projectsGrid');
+            const noProjects = document.getElementById('noProjects');
+            
+            let filteredProjects = allProjects;
+
+            if (currentFilter === 'highlights') {
+                filteredProjects = allProjects.filter(p => p.highlight);
+            } else if (currentFilter !== 'all') {
+                filteredProjects = allProjects.filter(p => p.category === currentFilter);
+            }
+
+            if (filteredProjects.length === 0) {
+                grid.style.display = 'none';
+                noProjects.style.display = 'block';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            noProjects.style.display = 'none';
+
+            grid.innerHTML = filteredProjects.map(project => `
+                <a href="projects/${project.id}/${project.id}.html" class="project-thumbnail">
+                    <img src="${project.thumbnail}" alt="${project.title}" class="project-thumbnail-image">
+                    <div class="project-thumbnail-info">
+                        <div class="project-thumbnail-title">${project.title}</div>
+                        <div class="project-thumbnail-year">${project.year}</div>
+                        <div class="project-thumbnail-tags">
+                            ${project.tags.map(tag => `<span class="project-thumbnail-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
