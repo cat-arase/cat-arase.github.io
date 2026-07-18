@@ -31,23 +31,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         const next = projects[currentIndex + 1];
 
         nav.className = "project-nav";
-        nav.innerHTML = `
-            <div class="project-nav-slot">
-                ${prev ? `
-                    <a class="project-nav-button" href="${siteRoot}projects/${prev.id}/${prev.id}.html">
-                        ← Previous: ${prev.title}
-                    </a>
-                ` : ""}
-            </div>
+       nav.innerHTML = `
+    <a class="back-link project-nav-button" href="${prev ? `${siteRoot}projects/${prev.id}/${prev.id}.html` : '#'}"
+       style="${prev ? '' : 'visibility:hidden; pointer-events:none;'}">
+        ← ${prev ? prev.title : 'Previous Project'}
+    </a>
 
-            <div class="project-nav-slot project-nav-right">
-                ${next ? `
-                    <a class="project-nav-button" href="${siteRoot}projects/${next.id}/${next.id}.html">
-                        Next: ${next.title} →
-                    </a>
-                ` : ""}
-            </div>
-        `;
+    <a class="back-link project-nav-button" href="${next ? `${siteRoot}projects/${next.id}/${next.id}.html` : '#'}"
+       style="${next ? '' : 'visibility:hidden; pointer-events:none;'}">
+        ${next ? next.title : 'Next Project'} →
+    </a>
+`;
     } catch (err) {
         console.error("Project nav failed to load:", err);
     }
