@@ -7,7 +7,7 @@
       "year": 2022,
       "thumbnail": "projects/egg-gripper/images/thumbnail.jpg",
       "tags": ["CAD Design", "Flexure", "Materials"],
-      "briefDescription": "A group homework project for my flexure design class",
+      "briefDescription": "A group homework project for my flexure design class"
     },
     {
       "id": "laser-pumpkin",
@@ -16,7 +16,7 @@
       "year": 2023,
       "thumbnail": "projects/laser-pumpkin/images/thumbnail.jpg",
       "tags": ["Laser Cutting", "Design"],
-      "briefDescription": "Custom laser-etched design project",
+      "briefDescription": "Custom laser-etched design project"
     },
     {
       "id": "flexure-2dof",
@@ -25,16 +25,16 @@
       "year": 2023,
       "thumbnail": "projects/flexure-2dof/images/thumbnail.jpg",
       "tags": ["CAD", "FEA", "Mechanism Design"],
-      "briefDescription": "Two degree of freedom flexure mechanism",
+      "briefDescription": "Two degree of freedom flexure mechanism"
     },
     {
       "id": "kayak-welding",
       "title": "Kayak Plastic Welding",
-      "category": ["research"],
+      "category": ["manufacturing", "research"],
       "year": 2024,
       "thumbnail": "projects/kayak-welding/images/thumbnail.jpg",
       "tags": ["Welding", "Plastic", "Repair"],
-      "briefDescription": "Research on plastic welding techniques",
+      "briefDescription": "Research on plastic welding techniques"
     }
   ]
 }
