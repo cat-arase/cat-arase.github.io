@@ -6,11 +6,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const nextSlot = document.getElementById("project-next");
     const categorySlot = document.getElementById("project-category");
 
-    if (!prevSlot || !nextSlot || !categorySlot) {
-        console.warn("Navigation slots not found in HTML");
-        return;
-    }
-
     try {
         const response = await fetch("/projects-data.json");
         if (!response.ok) {
@@ -20,22 +15,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         const data = await response.json();
         const projects = Array.isArray(data) ? data : data.projects;
 
-        if (!Array.isArray(projects)) {
-            console.error("Projects is not an array:", projects);
-            return;
-        }
-
         const currentProject = projects.find(p => p.id === currentId);
         if (!currentProject) {
-            console.warn(`Project "${currentId}" not found in projects-data.json`);
+            console.warn(`Project "${currentId}" not found`);
             return;
         }
 
-        // Read selected category from URL
         const params = new URLSearchParams(window.location.search);
         let selectedCategory = params.get("category") || "all";
 
-        // Filter projects
         let navProjects = projects;
 
         if (selectedCategory !== "all") {
@@ -45,10 +33,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
 
-        // Find current project in filtered list
         let currentIndex = navProjects.findIndex(p => p.id === currentId);
 
-        // If current project not in filtered list, fall back to all projects
         if (currentIndex === -1) {
             navProjects = projects;
             currentIndex = navProjects.findIndex(p => p.id === currentId);
@@ -73,22 +59,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ? "/projects.html" 
                 : `/projects.html?category=${encodeURIComponent(selectedCategory)}`;
             
-            categorySlot.innerHTML = `
-                <a class="project-category-pill" href="${link}">
-                    ${displayName}
-                </a>
-            `;
+            categorySlot.innerHTML = `<a class="project-category-pill" href="${link}">${displayName}</a>`;
         }
 
         if (prevSlot) {
             prevSlot.innerHTML = prev
-                ? `<a class="project-nav-link project-prev" href="/projects/${prev.id}/${prev.id}.html${categoryQuery}">← Previous Project</a>`
+                ? `<a class="project-nav-link" href="/projects/${prev.id}/${prev.id}.html${categoryQuery}">← Previous Project</a>`
                 : "";
         }
 
         if (nextSlot) {
             nextSlot.innerHTML = next
-                ? `<a class="project-nav-link project-next" href="/projects/${next.id}/${next.id}.html${categoryQuery}">Next Project →</a>`
+                ? `<a class="project-nav-link" href="/projects/${next.id}/${next.id}.html${categoryQuery}">Next Project →</a>`
                 : "";
         }
     } catch (err) {
