@@ -3,7 +3,7 @@
 <head>
     <title>Compliant Egg Gripper - Cat Arase Portfolio</title>
     <link rel="stylesheet" href="../../styles.css">
-    <style>
+<style>
         /* PROJECT-SPECIFIC STYLES */
         .project-header {
             display: grid;
@@ -65,6 +65,15 @@
             display: block;
             margin: 0 auto;
             background-color: #e0e0e0;
+        }
+
+        /* MAKE VIDEO SPAN 2 COLUMNS */
+        .image-grid-item:nth-child(3) {
+            grid-column: 1 / -1;
+        }
+
+        .image-grid-item:nth-child(3) video {
+            max-width: 600px;
         }
 
         .image-caption {
