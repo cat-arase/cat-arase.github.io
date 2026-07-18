@@ -21,18 +21,38 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        // Read selected category from URL if present
+        // Read selected category from URL
         const params = new URLSearchParams(window.location.search);
-        const selectedCategory = params.get("category") || currentProject.category;
+        let selectedCategory = params.get("category");
 
-        // Keep navigation within the selected category
-        let navProjects = projects.filter(p => p.category === selectedCategory);
+        // If no category in URL, use the first category from the project
+        if (!selectedCategory) {
+            selectedCategory = Array.isArray(currentProject.category)
+                ? currentProject.category[0]
+                : currentProject.category;
+        }
 
-        // If current project isn't in that category list, fall back to its own category
+        // Filter projects: keep only those that have the selected category
+        let navProjects = projects.filter(p => {
+            const categories = Array.isArray(p.category) ? p.category : [p.category];
+            return categories.includes(selectedCategory);
+        });
+
+        // Find current project in filtered list
         let currentIndex = navProjects.findIndex(p => p.id === currentId);
+
+        // If current project not in filtered list, fall back to its first category
         if (currentIndex === -1) {
-            navProjects = projects.filter(p => p.category === currentProject.category);
+            const fallbackCategory = Array.isArray(currentProject.category)
+                ? currentProject.category[0]
+                : currentProject.category;
+
+            navProjects = projects.filter(p => {
+                const categories = Array.isArray(p.category) ? p.category : [p.category];
+                return categories.includes(fallbackCategory);
+            });
             currentIndex = navProjects.findIndex(p => p.id === currentId);
+            selectedCategory = fallbackCategory;
         }
 
         const prev = currentIndex > 0 ? navProjects[currentIndex - 1] : null;
