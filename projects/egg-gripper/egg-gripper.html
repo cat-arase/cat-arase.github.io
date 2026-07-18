@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Compliant Egg Gripper - Cat Arase Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <style>
         .project-header {
             display: grid;
@@ -93,20 +93,20 @@
     <div id="header"></div>
 
     <script>
-        fetch('header.html')
+        fetch('../../header.html')
             .then(response => response.text())
             .then(data => document.getElementById('header').innerHTML = data);
     </script>
 
     <!-- MAIN CONTENT -->
     <div class="container">
-        <a href="projects.html" class="back-link">← Back to All Projects</a>
+        <a href="../../projects.html" class="back-link">← Back to All Projects</a>
 
         <h2>Compliant Egg Gripper (2022)</h2>
 
         <div class="project-header">
             <div>
-                <img src="projects/egg-gripper/images/hero.jpg" alt="Egg Gripper" class="project-header-image">
+                <img src="images/hero.jpg" alt="Egg Gripper" class="project-header-image">
                 <div class="image-caption">The final egg gripper made from delrin</div>
             </div>
 
@@ -133,18 +133,18 @@
         
         <div class="image-grid">
             <div class="image-grid-item">
-                <img src="projects/egg-gripper/images/prototypeV1.jpg" alt="Prototype Version 1">
+                <img src="images/prototypeV1.jpg" alt="Prototype Version 1">
                 <div class="image-caption">Early version of the flat egg gripper. It was very bad out of plane</div>
             </div>
 
             <div class="image-grid-item">
-                <img src="projects/egg-gripper/images/prototypeV2.jpg" alt="Prototype Version 2">
+                <img src="images/prototypeV2.jpg" alt="Prototype Version 2">
                 <div class="image-caption">First version of the 3D gripper. We thought that the cross bars would work like a 4 bar linkage mechanism, but they didn't and made the gripper too stiff. Breaking a few off actually made this gripper work better</div>
             </div>
 
             <div class="image-grid-item">
                 <video controls>
-                    <source src="projects/egg-gripper/images/video.mp4" type="video/mp4">
+                    <source src="images/video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="image-caption">Gripper in action - successfully gripping an egg</div>
@@ -156,7 +156,7 @@
     <div id="footer"></div>
 
     <script>
-        fetch('footer.html')
+        fetch('../../footer.html')
             .then(response => response.text())
             .then(data => document.getElementById('footer').innerHTML = data);
     </script>
