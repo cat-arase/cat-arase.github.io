@@ -261,16 +261,22 @@ li {
 /* IMAGE GRID */
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin: 2rem 0;
     width: 100%;
+    max-width: 100%;
 }
 
 .image-grid-item {
     text-align: center;
     width: 100%;
     min-width: 0;
+}
+
+.image-grid-item > div {
+    width: 280px !important;
+    margin: 0 auto !important;
 }
 
 .image-caption {
