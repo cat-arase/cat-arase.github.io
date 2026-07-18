@@ -251,23 +251,31 @@ ul {
     margin-bottom: 1rem;
 }
 
-/* IMAGE GRID */
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin: 2rem 0;
-}
+<!-- PROJECT GALLERY GRID -->
+        <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">Project Images</h3>
+        
+        <div class="image-grid">
+            <div class="image-grid-item">
+                <div style="width: 280px; margin: 0 auto;">
+                    <img src="images/prototypeV1.jpg" alt="Prototype Version 1" style="width: 100%; height: auto; display: block;">
+                    <div class="image-caption">First prototype iteration - initial flexure mechanism design</div>
+                </div>
+            </div>
 
-.image-grid-item {
-    text-align: center;
-}
+            <div class="image-grid-item">
+                <div style="width: 280px; margin: 0 auto;">
+                    <img src="images/prototypeV2.jpg" alt="Prototype Version 2" style="width: 100%; height: auto; display: block;">
+                    <div class="image-caption">Second prototype with refined gripper motion and compliance adjustments</div>
+                </div>
+            </div>
 
-.image-caption {
-    font-size: 0.95rem;
-    color: #666666;
-    font-style: italic;
-    margin-top: 0.75rem;
-    padding: 0 0.5rem;
-    line-height: 1.6;
-}
+            <div class="image-grid-item">
+                <div style="width: 280px; margin: 0 auto;">
+                    <video width="100%" height="auto" controls style="display: block; background-color: #e0e0e0;">
+                        <source src="images/video.mov" type="video/quicktime">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="image-caption">Gripper in action - successfully gripping an egg</div>
+                </div>
+            </div>
+        </div>
