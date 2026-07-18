@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compliant Egg Gripper - Cat Arase Portfolio</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .project-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin: 2rem 0;
+        }
 
+        .project-header-image {
+            width: 100%;
+            height: auto;
+            background-color: #e0e0e0;
+            border-radius: 0px;
+        }
+
+        .project-info h3 {
+            color: #1a1a1a;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .project-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #000000;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #000000;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- LOAD HEADER -->
+    <div id="header"></div>
+
+    <script>
+        fetch('../../header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <a href="../../projects.html" class="back-link">← Back to All Projects</a>
+
+        <h2>Compliant Egg Gripper</h2>
+
+        <div class="project-header">
+            <div>
+                <img src="images/hero.jpg" alt="Egg Gripper" class="project-header-image">
+            </div>
+            <div class="project-info">
+                <h3>Project Overview</h3>
+                <p><strong>Year:</strong> 2022</p>
+                <p><strong>Category:</strong> Engineering</p>
+                
+                <h3>Motivation</h3>
+                <p>A group homework project for my flexure design class. The objective was to design a compliant mechanism capable of safely gripping an egg.</p>
+
+                <h3>Description</h3>
+                <p>In my 3 person group, we created an egg gripper. The goal was to safely pick up and put down an egg. The gripper was made from delrin and laser cut (many waterjets on campus were having issues). We went through many iterations using the Freedom & Constraint Topology (FACT) chart to get the correct motion. Eggs are hard to carry because they break with too much force and can’t be lifted with too little. We modeled the entire gripper and then adjusted the model to match our part. The 1/8” delrin was cut on a 120W Epilogue laser with a 0.008” offset (I guessed the press fit on the first try, which was a huge win) at 24s, 100p, and 100f with 3 passes. The parts were also press fit together as we were very limited on which materials were allowed.</p>
+
+                
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li>Successfully gripped eggs without breaking them</li>
+                    <li>Designed using flexure mechanisms for smooth motion</li>
+                    <li>Iterated through multiple design prototypes</li>
+                </ul>
+
+                <h3>Lessons Learned</h3>
+                <p>Friction is hard to estimate well, especially when it is the main way we are holding the egg. We switched from a gripper that held the egg out of plane to one that held it in more orientations. We ended up breaking a few eggs in the process of getting our gripper to work. The gripper also really struggled until we made the device more compliant. Compliance isn’t always a bad thing in design, especially when it is used effectively.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Cat Arase. All rights reserved.</p>
+    </footer>
+</body>
+</html>
