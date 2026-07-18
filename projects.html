@@ -47,92 +47,107 @@
             .then(data => document.getElementById('footer').innerHTML = data);
     </script>
 
-    <script>
-        let allProjects = [];
-        let currentFilter = 'all';
+   <script>
+    let allProjects = [];
+    let currentFilter = 'all';
 
-        // Read category from URL parameter on page load
-        const params = new URLSearchParams(window.location.search);
-        const urlCategory = params.get('category');
+    // Read category from URL parameter on page load
+    const params = new URLSearchParams(window.location.search);
+    const urlCategory = params.get('category');
 
-        // Load projects data
-        fetch('projects-data.json')
-            .then(response => response.json())
-            .then(data => {
-                allProjects = data.projects;
-                
-                // If URL has a category parameter, set it as the current filter
-                if (urlCategory) {
-                    currentFilter = urlCategory;
-                    
-                    // Activate the corresponding button
-                    document.querySelectorAll('.filter-btn').forEach(btn => {
-                        btn.classList.remove('active');
-                        if (btn.dataset.filter === urlCategory) {
-                            btn.classList.add('active');
-                        }
-                    });
-                }
-                
-                renderProjects();
-            })
-            .catch(error => console.error('Error loading projects:', error));
-
-        // Filter button listeners
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                currentFilter = this.dataset.filter;
-                renderProjects();
-                
-                // Update URL without reloading the page
-                const newUrl = currentFilter === 'all' 
-                    ? 'projects.html' 
-                    : `projects.html?category=${currentFilter}`;
-                window.history.pushState({}, '', newUrl);
-            });
-        });
-
-        function renderProjects() {
-            const grid = document.getElementById('projectsGrid');
-            const noProjects = document.getElementById('noProjects');
+    // Load projects data
+    fetch('projects-data.json')
+        .then(response => {
+            console.log('Fetch response status:', response.status);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Projects data loaded:', data);
+            allProjects = data.projects || data;
+            console.log('All projects:', allProjects);
             
-            let filteredProjects = allProjects;
-
-            if (currentFilter !== 'all') {
-                filteredProjects = allProjects.filter(p => {
-                    const categories = Array.isArray(p.category) ? p.category : [p.category];
-                    return categories.includes(currentFilter);
+            // If URL has a category parameter, set it as the current filter
+            if (urlCategory) {
+                currentFilter = urlCategory;
+                
+                // Activate the corresponding button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.filter === urlCategory) {
+                        btn.classList.add('active');
+                    }
                 });
             }
+            
+            renderProjects();
+        })
+        .catch(error => console.error('Error loading projects:', error));
 
-            if (filteredProjects.length === 0) {
-                grid.style.display = 'none';
-                noProjects.style.display = 'block';
-                return;
-            }
+    // Filter button listeners
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentFilter = this.dataset.filter;
+            console.log('Filter changed to:', currentFilter);
+            renderProjects();
+            
+            // Update URL without reloading the page
+            const newUrl = currentFilter === 'all' 
+                ? 'projects.html' 
+                : `projects.html?category=${currentFilter}`;
+            window.history.pushState({}, '', newUrl);
+        });
+    });
 
-            grid.style.display = 'grid';
-            noProjects.style.display = 'none';
+    function renderProjects() {
+        console.log('Rendering projects with filter:', currentFilter);
+        console.log('Total projects available:', allProjects.length);
+        
+        const grid = document.getElementById('projectsGrid');
+        const noProjects = document.getElementById('noProjects');
+        
+        let filteredProjects = allProjects;
 
-            // Build project links with category parameter
-            grid.innerHTML = filteredProjects.map(project => {
-                const categoryParam = currentFilter === 'all' ? '' : `?category=${currentFilter}`;
-                return `
-                    <a href="projects/${project.id}/${project.id}.html${categoryParam}" class="project-thumbnail">
-                        <img src="${project.thumbnail}" alt="${project.title}" class="project-thumbnail-image">
-                        <div class="project-thumbnail-info">
-                            <div class="project-thumbnail-title">${project.title}</div>
-                            <div class="project-thumbnail-year">${project.year}</div>
-                            <div class="project-thumbnail-tags">
-                                ${project.tags.map(tag => `<span class="project-thumbnail-tag">${tag}</span>`).join('')}
-                            </div>
-                        </div>
-                    </a>
-                `;
-            }).join('');
+        if (currentFilter !== 'all') {
+            filteredProjects = allProjects.filter(p => {
+                const categories = Array.isArray(p.category) ? p.category : [p.category];
+                console.log(`Project "${p.id}" categories:`, categories, 'includes filter?', categories.includes(currentFilter));
+                return categories.includes(currentFilter);
+            });
         }
-    </script>
+
+        console.log('Filtered projects count:', filteredProjects.length);
+
+        if (filteredProjects.length === 0) {
+            grid.style.display = 'none';
+            noProjects.style.display = 'block';
+            return;
+        }
+
+        grid.style.display = 'grid';
+        noProjects.style.display = 'none';
+
+        // Build project links with category parameter
+        grid.innerHTML = filteredProjects.map(project => {
+            const categoryParam = currentFilter === 'all' ? '' : `?category=${currentFilter}`;
+            return `
+                <a href="projects/${project.id}/${project.id}.html${categoryParam}" class="project-thumbnail">
+                    <img src="${project.thumbnail}" alt="${project.title}" class="project-thumbnail-image">
+                    <div class="project-thumbnail-info">
+                        <div class="project-thumbnail-title">${project.title}</div>
+                        <div class="project-thumbnail-year">${project.year}</div>
+                        <div class="project-thumbnail-tags">
+                            ${project.tags.map(tag => `<span class="project-thumbnail-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </a>
+            `;
+        }).join('');
+    }
+</script>
 </body>
 </html>
