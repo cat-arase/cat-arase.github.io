@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume - Cat Arase Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- LOAD HEADER -->
+    <div id="header"></div>
+
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h2>Resume</h2>
+        
+        <div class="resume-container">
+            <p style="margin-bottom: 1.5rem;">
+                <a href="your-resume.pdf" download class="resume-download-btn">Download Resume</a>
+            </p>
+            
+            <iframe 
+                src="your-resume.pdf" 
+                style="width: 100%; height: 800px; border: 1px solid #e0e0e0; margin-bottom: 2rem;"
+                title="Cat Arase Resume">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- LOAD FOOTER -->
+    <div id="footer"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
