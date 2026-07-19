@@ -28,6 +28,24 @@
       "briefDescription": "Lathe from 2.72"
     },
     {
+      "id": "intermediate-MIG",
+      "title": "Weekly Intermediate MIG Welding Trainings",
+      "category": ["teaching"],
+      "year": 2023,
+      "thumbnail": "projects/tissue-box/images/thumbnail.jpg",
+      "tags": ["MIG Welding", "Handheld Plasma", "Class development"],
+      "briefDescription": "More advanced MIG welding"
+    },
+    {
+      "id": "WTP",
+      "title": "Women's Technology Program HK",
+      "category": ["teaching"],
+      "year": 2023,
+      "thumbnail": "projects/tissue-box/images/thumbnail.jpg",
+      "tags": ["Electronics", "Code", "Class development"],
+      "briefDescription": "High school program"
+    },
+    {
       "id": "wave",
       "title": "The Wave",
       "category": ["fun"],
@@ -53,6 +71,15 @@
       "thumbnail": "projects/welcome-back-seth/images/thumbnail.jpg",
       "tags": ["MIG Welding", "Hand Plasma", "Art", "Gift"],
       "briefDescription": "Gift for a friend"
+    },
+    {
+      "id": "cnc-plasma-training",
+      "title": "CNC Plasma Cutter Training",
+      "category": ["teaching"],
+      "year": 2023,
+      "thumbnail": "projects/cnc-plasma-training/images/thumbnail.jpg",
+      "tags": ["CNC Plasma", "Design ", "Art", "Spot Welder", "Volunteer", "Class development"],
+      "briefDescription": "Volunteer work"
     },
     {
       "id": "prop-axes",
@@ -127,6 +154,15 @@
       "briefDescription": "Class to learn lots of tools & processes"
     },
     {
+      "id": "beginner-mig",
+      "title": "Weekly Beginner MIG Welding Trainings",
+      "category": ["teaching"],
+      "year": 2022,
+      "thumbnail": "projects/beginner-mig/images/thumbnail.jpg",
+      "tags": ["MIG Welding"],
+      "briefDescription": "Weekly teaching sessions"
+    },
+    {
       "id": "doormat",
       "title": "Custom Doormats",
       "category": ["fun"],
@@ -172,6 +208,15 @@
       "briefDescription": "Two degree of freedom flexure mechanism"
     },
     {
+      "id": "electronics-for-mechE",
+      "title": "Electronics for Mechanical Engineers",
+      "category": ["teaching"],
+      "year": 2022,
+      "thumbnail": "projects/electronics-for-mechE/images/thumbnail.jpg",
+      "tags": ["Electronics", "TA"],
+      "briefDescription": "TA'd the class"
+    },
+    {
       "id": "kayak-welding",
       "title": "Kayak Plastic Welding",
       "category": ["fun"],
@@ -206,6 +251,15 @@
       "thumbnail": "projects/stirling-engine/images/thumbnail.jpg",
       "tags": ["Machining", "CAM", "Art"],
       "briefDescription": "Papalardo apprenticship"
+    },
+    {
+      "id": "pappalaurdo-apprenticeship",
+      "title": "Pappalaurdo Apprenticeship",
+      "category": ["teaching"],
+      "year": 2022,
+      "thumbnail": "projects/pappalaurdo-apprenticeship/images/thumbnail.jpg",
+      "tags": ["Machining", "Design", "TA"],
+      "briefDescription": "TA'd the class"
     },
     {
       "id": "cowyak",
@@ -307,6 +361,15 @@
       "briefDescription": "Simmons water wars build"
     },
     {
+      "id": "simmons-EE",
+      "title": "Simmons EE Lab Chair",
+      "category": [],
+      "year": 2021,
+      "thumbnail": "projects/simmons-EE/images/thumbnail.jpg",
+      "tags": ["Space managment", "Makerspace"],
+      "briefDescription": "Fixed up EE lab post covid"
+    },
+    {
       "id": "navigation-circuit-board",
       "title": "Navigation Circuit Board ",
       "category": ["engineering"],
@@ -350,6 +413,15 @@
       "thumbnail": "projects/wheel-spinning-robot/images/thumbnail.jpg",
       "tags": ["Robot", "Design", "CAD", "Class Project"],
       "briefDescription": "2.007 project"
+    },
+    {
+      "id": "waterjet-training",
+      "title": "Weekly Waterjet Trainings",
+      "category": ["teaching"],
+      "year": 2020,
+      "thumbnail": "projects/waterjet-training/images/thumbnail.jpg",
+      "tags": ["Waterjet"],
+      "briefDescription": "Metropolis training"
     },
     {
       "id": "blacksmithing",
