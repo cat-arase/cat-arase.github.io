@@ -5,7 +5,7 @@
       "title": "Curved Scissor Lift",
       "category": ["engineering", "highlights"],
       "year": 2024,
-      "thumbnail": "projects/curved-scisor/images/thumbnail.jpg",
+      "thumbnail": "projects/curved-scisor/thumbnail.jpg",
       "tags": ["CAD", "Mechanical Design", "Machining", "Course Project"],
       "briefDescription": "Curved scissor mechanism for Alex Slocum's class"
     },
@@ -14,7 +14,7 @@
       "title": "Metal & Glass Lamps",
       "category": ["fun", "teaching"],
       "year": 2024,
-      "thumbnail": "projects/metal-glass-lamps/images/thumbnail.jpg",
+      "thumbnail": "projects/metal-glass-lamps/thumbnail.jpg",
       "tags": ["MIG Welding", "Design", "Teaching", "Metals"],
       "briefDescription": "Lamps made by me and students"
     },
@@ -23,7 +23,7 @@
       "title": "Lathe",
       "category": ["engineering"],
       "year": 2023,
-      "thumbnail": "projects/lathe/images/thumbnail.jpg",
+      "thumbnail": "projects/lathe/thumbnail.jpg",
       "tags": ["CAD", "Machining", "Mechanical Design"],
       "briefDescription": "Lathe from 2.72"
     },
@@ -32,7 +32,7 @@
       "title": "Weekly Intermediate MIG Welding Trainings",
       "category": ["teaching"],
       "year": 2023,
-      "thumbnail": "projects/tissue-box/images/thumbnail.jpg",
+      "thumbnail": "projects/tissue-box/thumbnail.jpg",
       "tags": ["Teaching", "MIG Welding", "Mentoring"],
       "briefDescription": "More advanced MIG welding"
     },
@@ -41,7 +41,7 @@
       "title": "Women's Technology Program HK",
       "category": ["teaching"],
       "year": 2023,
-      "thumbnail": "projects/tissue-box/images/thumbnail.jpg",
+      "thumbnail": "projects/tissue-box/thumbnail.jpg",
       "tags": ["Teaching", "Electronics", "Software", "Mentoring"],
       "briefDescription": "High school program"
     },
@@ -50,7 +50,7 @@
       "title": "The Wave",
       "category": ["fun"],
       "year": 2023,
-      "thumbnail": "projects/wave/images/thumbnail.jpg",
+      "thumbnail": "projects/wave/thumbnail.jpg",
       "tags": ["Laser Cutting", "Design", "Personal Project", "Gift"],
       "briefDescription": "Laser cut art for a friend"
     },
@@ -59,7 +59,7 @@
       "title": "Tissue Box",
       "category": ["fun", "teaching"],
       "year": 2023,
-      "thumbnail": "projects/tissue-box/images/thumbnail.jpg",
+      "thumbnail": "projects/tissue-box/thumbnail.jpg",
       "tags": ["Laser Cutting", "Design", "Personal Project"],
       "briefDescription": "Laser cut art for a friend"
     },
@@ -68,7 +68,7 @@
       "title": "Welcome Back Sign",
       "category": ["fun"],
       "year": 2023,
-      "thumbnail": "projects/welcome-back-seth/images/thumbnail.jpg",
+      "thumbnail": "projects/welcome-back-seth/thumbnail.jpg",
       "tags": ["MIG Welding", "Design", "Gift", "Metals"],
       "briefDescription": "Gift for a friend"
     },
@@ -77,7 +77,7 @@
       "title": "CNC Plasma Cutter Training",
       "category": ["teaching"],
       "year": 2023,
-      "thumbnail": "projects/cnc-plasma-training/images/thumbnail.jpg",
+      "thumbnail": "projects/cnc-plasma-training/thumbnail.jpg",
       "tags": ["Teaching", "CNC Plasma", "Design", "Mentoring"],
       "briefDescription": "Volunteer work"
     },
@@ -86,7 +86,7 @@
       "title": "Prop Axes",
       "category": ["fun"],
       "year": 2023,
-      "thumbnail": "projects/prop-axes/images/thumbnail.jpg",
+      "thumbnail": "projects/prop-axes/thumbnail.jpg",
       "tags": ["CNC Routing", "CAM", "Woodworking", "Personal Project"],
       "briefDescription": "Prop axes for MIT's Ukrainian Dance Club"
     },
@@ -95,7 +95,7 @@
       "title": "Apron Hooks",
       "category": ["fun"],
       "year": 2023,
-      "thumbnail": "projects/prop-axes/images/thumbnail.jpg",
+      "thumbnail": "projects/prop-axes/thumbnail.jpg",
       "tags": ["MIG Welding", "Design", "Metals", "Personal Project"],
       "briefDescription": "New apron hooks for Metropolis"
     },
@@ -104,7 +104,7 @@
       "title": "Marbles",
       "category": ["fun"],
       "year": 2023,
-      "thumbnail": "projects/marbles/images/thumbnail.jpg",
+      "thumbnail": "projects/marbles/thumbnail.jpg",
       "tags": ["Glass Torchwork", "Design", "Personal Project"],
       "briefDescription": "Not quite round marbles"
     },
@@ -113,7 +113,7 @@
       "title": "Speaker Housing & PCB Layout",
       "category": ["fun"],
       "year": 2023,
-      "thumbnail": "projects/speaker-housing/images/thumbnail.jpg",
+      "thumbnail": "projects/speaker-housing/thumbnail.jpg",
       "tags": ["PCB Design", "Laser Cutting", "Electronics", "Design"],
       "briefDescription": "Laser cut case for a PCB from a PCB layout class"
     },
@@ -122,7 +122,7 @@
       "title": "MIG Welded Lamp",
       "category": ["fun", "teaching"],
       "year": 2023,
-      "thumbnail": "projects/MIG-lamp/images/thumbnail.jpg",
+      "thumbnail": "projects/MIG-lamp/thumbnail.jpg",
       "tags": ["MIG Welding", "Design", "Metals", "Teaching"],
       "briefDescription": "MIG lamp as a demo for a class"
     },
@@ -131,7 +131,7 @@
       "title": "Puzzle Ball Lamp",
       "category": ["fun"],
       "year": 2023,
-      "thumbnail": "projects/puzzle-ball-lamp/images/thumbnail.jpg",
+      "thumbnail": "projects/puzzle-ball-lamp/thumbnail.jpg",
       "tags": ["Laser Cutting", "Design", "Personal Project"],
       "briefDescription": "Puzzle ball lamp based off of designs online"
     },
@@ -140,7 +140,7 @@
       "title": "Flexure Based Dial Indicator ",
       "category": ["engineering"],
       "year": 2022,
-      "thumbnail": "projects/flexure-dial-indicator/images/thumbnail.jpg",
+      "thumbnail": "projects/flexure-dial-indicator/thumbnail.jpg",
       "tags": ["CAD", "Flexure Design", "3D Printing", "Mechanical Design"],
       "briefDescription": "Dial indicator using flexures instead of gears"
     },
@@ -149,7 +149,7 @@
       "title": "Faux Neon Sign",
       "category": ["fun", "teaching"],
       "year": 2022,
-      "thumbnail": "projects/neon-sign/images/thumbnail.jpg",
+      "thumbnail": "projects/neon-sign/thumbnail.jpg",
       "tags": ["CAM", "CNC Routing", "Soldering", "Design", "Teaching"],
       "briefDescription": "Class to learn lots of tools & processes"
     },
@@ -158,7 +158,7 @@
       "title": "Weekly Beginner MIG Welding Trainings",
       "category": ["teaching"],
       "year": 2022,
-      "thumbnail": "projects/beginner-mig/images/thumbnail.jpg",
+      "thumbnail": "projects/beginner-mig/thumbnail.jpg",
       "tags": ["Teaching", "MIG Welding", "Mentoring"],
       "briefDescription": "Weekly teaching sessions"
     },
@@ -167,7 +167,7 @@
       "title": "Custom Doormats",
       "category": ["fun"],
       "year": 2022,
-      "thumbnail": "projects/doormat/images/thumbnail.jpg",
+      "thumbnail": "projects/doormat/thumbnail.jpg",
       "tags": ["Laser Cutting", "Design", "Personal Project"],
       "briefDescription": "Class to learn lots of tools & processes"
     },
@@ -176,7 +176,7 @@
       "title": "Soft Robot Pressure Control Box ",
       "category": ["research"],
       "year": 2022,
-      "thumbnail": "projects/pressure-control/images/thumbnail.jpg",
+      "thumbnail": "projects/pressure-control/thumbnail.jpg",
       "tags": ["Pneumatics", "Laser Cutting", "Design", "Research"],
       "briefDescription": "Pressure control and vents in a nice box"
     },
@@ -185,7 +185,7 @@
       "title": "Compliant Egg Gripper",
       "category": ["engineering", "highlights"],
       "year": 2022,
-      "thumbnail": "projects/egg-gripper/images/thumbnail.jpg",
+      "thumbnail": "projects/egg-gripper/thumbnail.jpg",
       "tags": ["Flexure Design", "Laser Cutting", "Mechanical Design", "Course Project"],
       "briefDescription": "A group homework project for my flexure design class"
     },
@@ -194,7 +194,7 @@
       "title": "Laser Etched Pumpkin",
       "category": ["fun"],
       "year": 2022,
-      "thumbnail": "projects/laser-pumpkin/images/thumbnail.jpg",
+      "thumbnail": "projects/laser-pumpkin/thumbnail.jpg",
       "tags": ["Laser Cutting", "Design", "Personal Project"],
       "briefDescription": "Custom laser-etched design project"
     },
@@ -203,7 +203,7 @@
       "title": "2 DOF Flexure",
       "category": ["engineering"],
       "year": 2022,
-      "thumbnail": "projects/flexure-2dof/images/thumbnail.jpg",
+      "thumbnail": "projects/flexure-2dof/thumbnail.jpg",
       "tags": ["CAD", "Flexure Design", "Mechanical Design", "Course Project"],
       "briefDescription": "Two degree of freedom flexure mechanism"
     },
@@ -212,7 +212,7 @@
       "title": "Electronics for Mechanical Engineers",
       "category": ["teaching"],
       "year": 2022,
-      "thumbnail": "projects/electronics-for-mechE/images/thumbnail.jpg",
+      "thumbnail": "projects/electronics-for-mechE/thumbnail.jpg",
       "tags": ["Teaching", "Electronics", "Mentoring"],
       "briefDescription": "TA'd the class"
     },
@@ -221,7 +221,7 @@
       "title": "Kayak Plastic Welding",
       "category": ["fun"],
       "year": 2022,
-      "thumbnail": "projects/kayak-welding/images/thumbnail.jpg",
+      "thumbnail": "projects/kayak-welding/thumbnail.jpg",
       "tags": ["Plastics", "Design", "Research", "Personal Project"],
       "briefDescription": "Research on plastic welding techniques"
     },
@@ -230,7 +230,7 @@
       "title": "Windlass Casting",
       "category": ["highlights", "engineering"],
       "year": 2022,
-      "thumbnail": "projects/windlass/images/thumbnail.jpg",
+      "thumbnail": "projects/windlass/thumbnail.jpg",
       "tags": ["Casting", "Machining", "CAM", "Metals"],
       "briefDescription": "Brass metal casting"
     },
@@ -239,7 +239,7 @@
       "title": "Micro Dragonfly",
       "category": ["research", "highlights", "engineering"],
       "year": 2022,
-      "thumbnail": "projects/dragonfly/images/thumbnail.jpg",
+      "thumbnail": "projects/dragonfly/thumbnail.jpg",
       "tags": ["Laser Cutting", "Mechanical Design", "Design", "Research"],
       "briefDescription": "Senior thesis"
     },
@@ -248,7 +248,7 @@
       "title": "Stirling Engine",
       "category": ["highlights", "engineering", "fun"],
       "year": 2022,
-      "thumbnail": "projects/stirling-engine/images/thumbnail.jpg",
+      "thumbnail": "projects/stirling-engine/thumbnail.jpg",
       "tags": ["Machining", "CAM", "Design", "Metals"],
       "briefDescription": "Papalardo apprenticship"
     },
@@ -257,7 +257,7 @@
       "title": "Pappalaurdo Apprenticeship",
       "category": ["teaching"],
       "year": 2022,
-      "thumbnail": "projects/pappalaurdo-apprenticeship/images/thumbnail.jpg",
+      "thumbnail": "projects/pappalaurdo-apprenticeship/thumbnail.jpg",
       "tags": ["Teaching", "Machining", "Mentoring"],
       "briefDescription": "TA'd the class"
     },
@@ -266,7 +266,7 @@
       "title": "Cowyak",
       "category": ["fun"],
       "year": 2022,
-      "thumbnail": "projects/cowyak/images/thumbnail.jpg",
+      "thumbnail": "projects/cowyak/thumbnail.jpg",
       "tags": ["Personal Project", "Team Leadership", "Design"],
       "briefDescription": "Fun with friends"
     },
@@ -275,7 +275,7 @@
       "title": "Injection Molded Yoyos",
       "category": ["engineering" ,"fun"],
       "year": 2022,
-      "thumbnail": "projects/yoyo/images/thumbnail.jpg",
+      "thumbnail": "projects/yoyo/thumbnail.jpg",
       "tags": ["Injection Molding", "CAD", "CAM", "Machining", "Product Design"],
       "briefDescription": "Life-theme injection molded yo-yo"
     },
@@ -284,7 +284,7 @@
       "title": "Router and Laser Work",
       "category": ["fun"],
       "year": 2022,
-      "thumbnail": "projects/softball-field-gift/images/thumbnail.jpg",
+      "thumbnail": "projects/softball-field-gift/thumbnail.jpg",
       "tags": ["CAD", "CAM", "CNC Routing", "Laser Cutting", "Gift", "Design"],
       "briefDescription": "Softball senior gift"
     },
@@ -293,7 +293,7 @@
       "title": "Waterjet Coasters",
       "category": ["fun"],
       "year": 2022,
-      "thumbnail": "projects/waterjet-coaster/images/thumbnail.jpg",
+      "thumbnail": "projects/waterjet-coaster/thumbnail.jpg",
       "tags": ["Waterjet Cutting", "Design", "Gift"],
       "briefDescription": "Gift for dad"
     },
@@ -302,7 +302,7 @@
       "title": "Glass Laser Etching ",
       "category": ["fun"],
       "year": 2022,
-      "thumbnail": "projects/glasses-laser/images/thumbnail.jpg",
+      "thumbnail": "projects/glasses-laser/thumbnail.jpg",
       "tags": ["Laser Cutting", "Glass", "Gift", "Design"],
       "briefDescription": "Gifts"
     },
@@ -311,7 +311,7 @@
       "title": "Machine Embroidery",
       "category": ["fun"],
       "year": 2022,
-      "thumbnail": "projects/cnc-embroidery/images/thumbnail.jpg",
+      "thumbnail": "projects/cnc-embroidery/thumbnail.jpg",
       "tags": ["Design", "Personal Project"],
       "briefDescription": "Embroidery projects"
     },
@@ -320,7 +320,7 @@
       "title": "Hammering Robot",
       "category": ["engineering"],
       "year": 2021,
-      "thumbnail": "projects/hammering-robot/images/thumbnail.jpg",
+      "thumbnail": "projects/hammering-robot/thumbnail.jpg",
       "tags": ["3D Printing", "Design", "Illustration", "Course Project"],
       "briefDescription": "Class project with some chaos"
     },
@@ -329,7 +329,7 @@
       "title": "Seahawks Light",
       "category": ["fun"],
       "year": 2021,
-      "thumbnail": "projects/seahawks-light/images/thumbnail.jpg",
+      "thumbnail": "projects/seahawks-light/thumbnail.jpg",
       "tags": ["PCB Design", "Electronics", "Design", "Personal Project"],
       "briefDescription": "COVID era limited tool project"
     },
@@ -338,7 +338,7 @@
       "title": "Vinyl Stickers",
       "category": ["fun"],
       "year": 2021,
-      "thumbnail": "projects/vinyl-stickers/images/thumbnail.jpg",
+      "thumbnail": "projects/vinyl-stickers/thumbnail.jpg",
       "tags": ["Design", "Personal Project"],
       "briefDescription": "Vinyl stickers"
     },
@@ -347,7 +347,7 @@
       "title": "Vulcan, a wire to wire soldering device",
       "category": ["engineering"],
       "year": 2021,
-      "thumbnail": "projects/vinyl-stickers/images/thumbnail.jpg",
+      "thumbnail": "projects/vinyl-stickers/thumbnail.jpg",
       "tags": ["Product Design", "Soldering", "PCB Design", "Electronics", "Team Leadership"],
       "briefDescription": "2.009"
     },
@@ -356,7 +356,7 @@
       "title": "Giant Duck",
       "category": ["fun"],
       "year": 2021,
-      "thumbnail": "projects/giant-duck/images/thumbnail.jpg",
+      "thumbnail": "projects/giant-duck/thumbnail.jpg",
       "tags": ["Woodworking", "Team Leadership", "Design"],
       "briefDescription": "Simmons water wars build"
     },
@@ -365,7 +365,7 @@
       "title": "Simmons EE Lab Chair",
       "category": [],
       "year": 2021,
-      "thumbnail": "projects/simmons-EE/images/thumbnail.jpg",
+      "thumbnail": "projects/simmons-EE/thumbnail.jpg",
       "tags": ["Design", "Personal Project"],
       "briefDescription": "Fixed up EE lab post covid"
     },
@@ -374,7 +374,7 @@
       "title": "Navigation Circuit Board ",
       "category": ["engineering"],
       "year": 2021,
-      "thumbnail": "projects/navigation-circuit-board/images/thumbnail.jpg",
+      "thumbnail": "projects/navigation-circuit-board/thumbnail.jpg",
       "tags": ["PCB Design", "Electronics", "Course Project"],
       "briefDescription": "Circuit board to learn how to make them"
     },
@@ -383,7 +383,7 @@
       "title": "April Tags and Object Tracking",
       "category": ["engineering"],
       "year": 2021,
-      "thumbnail": "projects/april-tags/images/thumbnail.jpg",
+      "thumbnail": "projects/april-tags/thumbnail.jpg",
       "tags": ["Software", "Course Project"],
       "briefDescription": "Become a duck"
     },
@@ -392,7 +392,7 @@
       "title": "Spring Constants of Pullback Toy Cars",
       "category": ["engineering"],
       "year": 2020,
-      "thumbnail": "projects/go-forth/images/thumbnail.jpg",
+      "thumbnail": "projects/go-forth/thumbnail.jpg",
       "tags": ["Data Analysis", "Course Project"],
       "briefDescription": "Learn about differences in toy cars"
     },
@@ -401,7 +401,7 @@
       "title": "Electrocatalytic Cell Design",
       "category": ["engineering", "research"],
       "year": 2020,
-      "thumbnail": "projects/electrocatalytic-cell/images/thumbnail.jpg",
+      "thumbnail": "projects/electrocatalytic-cell/thumbnail.jpg",
       "tags": ["CAD", "Design", "Product Design", "Research"],
       "briefDescription": "Design a research tool"
     },
@@ -410,7 +410,7 @@
       "title": "Wheel Spinning Robot",
       "category": ["engineering"],
       "year": 2020,
-      "thumbnail": "projects/wheel-spinning-robot/images/thumbnail.jpg",
+      "thumbnail": "projects/wheel-spinning-robot/thumbnail.jpg",
       "tags": ["CAD", "Mechanical Design", "Course Project"],
       "briefDescription": "2.007 project"
     },
@@ -419,7 +419,7 @@
       "title": "Weekly Waterjet Trainings",
       "category": ["teaching"],
       "year": 2020,
-      "thumbnail": "projects/waterjet-training/images/thumbnail.jpg",
+      "thumbnail": "projects/waterjet-training/thumbnail.jpg",
       "tags": ["Teaching", "Waterjet Cutting", "Mentoring"],
       "briefDescription": "Metropolis training"
     },
@@ -428,7 +428,7 @@
       "title": "Blacksmithing",
       "category": ["fun"],
       "year": 2020,
-      "thumbnail": "projects/blacksmithing/images/thumbnail.jpg",
+      "thumbnail": "projects/blacksmithing/thumbnail.jpg",
       "tags": ["Blacksmithing", "Personal Project", "Metals"],
       "briefDescription": "Learn to blacksmith"
     },
@@ -437,7 +437,7 @@
       "title": "Clock",
       "category": ["fun"],
       "year": 2019,
-      "thumbnail": "projects/clock/images/thumbnail.jpg",
+      "thumbnail": "projects/clock/thumbnail.jpg",
       "tags": ["Laser Cutting", "Design", "Gift"],
       "briefDescription": "Laser cut a fancy clock"
     },
@@ -446,7 +446,7 @@
       "title": "Flashlight",
       "category": ["engineering"],
       "year": 2019,
-      "thumbnail": "projects/flashlight/images/thumbnail.jpg",
+      "thumbnail": "projects/flashlight/thumbnail.jpg",
       "tags": ["Machining", "Course Project"],
       "briefDescription": "Simple, first machining project"
     },
@@ -455,7 +455,7 @@
       "title": "Pencil Holder",
       "category": ["fun"],
       "year": 2018,
-      "thumbnail": "projects/pencil-holder/images/thumbnail.jpg",
+      "thumbnail": "projects/pencil-holder/thumbnail.jpg",
       "tags": ["Laser Cutting", "Woodworking", "3D Printing", "Design"],
       "briefDescription": "Learn to use all the shop tools"
     },
@@ -464,7 +464,7 @@
       "title": "3D Printers & Early Design",
       "category": ["fun"],
       "year": 2018,
-      "thumbnail": "projects/3D-printers-and-early/images/thumbnail.jpg",
+      "thumbnail": "projects/3D-printers-and-early/thumbnail.jpg",
       "tags": ["Design", "3D Printing", "Personal Project"],
       "briefDescription": "Where I started"
     }
