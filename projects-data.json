@@ -12,7 +12,7 @@
     {
       "id": "metal-glass-lamps",
       "title": "Metal & Glass Lamps",
-      "category": ["fun", "classes"],
+      "category": ["fun", "teaching"],
       "year": 2024,
       "thumbnail": "projects/metal-glass-lamps/images/thumbnail.jpg",
       "tags": ["Design", "Welding", "CNC Plasma", "Course Design"],
@@ -73,37 +73,109 @@
       "briefDescription": "New apron hooks for Metropolis"
     },
     {
+      "id": "marbles",
+      "title": "Marbles",
+      "category": ["fun"],
+      "year": 2023,
+      "thumbnail": "projects/marbles/images/thumbnail.jpg",
+      "tags": ["Glass Torchwork"],
+      "briefDescription": "Not quite round marbles"
+    },
+     {
+      "id": "speaker-housing",
+      "title": "Speaker Housing & PCB Layout",
+      "category": ["fun"],
+      "year": 2023,
+      "thumbnail": "projects/speaker-housing/images/thumbnail.jpg",
+      "tags": ["PCB", "Laser", "Design"],
+      "briefDescription": "Laser cut case for a PCB from a PCB layout class"
+    },
+    {
+      "id": "MIG-lamp",
+      "title": "MIG Welded Lamp",
+      "category": ["fun", "teaching"],
+      "year": 2023-2026,
+      "thumbnail": "projects/MIG-lamp/images/thumbnail.jpg",
+      "tags": ["MIG Welding", "Design"],
+      "briefDescription": "MIG lamp as a demo for a class"
+    },
+    {
+      "id": "puzzle-ball-lamp",
+      "title": "Puzzle Ball Lamp",
+      "category": ["fun"],
+      "year": 2023,
+      "thumbnail": "projects/puzzle-ball-lamp/images/thumbnail.jpg",
+      "tags": ["Laser", "Art"],
+      "briefDescription": "Puzzle ball lamp based off of designs online"
+    },
+    {
+      "id": "flexure-dial-indicator",
+      "title": "Flexure Based Dial Indicator ",
+      "category": ["engineering"],
+      "year": 2022,
+      "thumbnail": "projects/flexure-dial-indicator/images/thumbnail.jpg",
+      "tags": ["CAD", "Preision", "Flexure", "3D Printing"=],
+      "briefDescription": "Dial indicator using flexures instead of gears"
+    },
+    {
+      "id": "neon-sign",
+      "title": "Faux Neon Sign",
+      "category": ["fun", "teaching"],
+      "year": 2022,
+      "thumbnail": "projects/neon-sign/images/thumbnail.jpg",
+      "tags": ["CAM", "CNC Router", "Soldering", "Course Design"],
+      "briefDescription": "Class to learn lots of tools & processes"
+    },
+    {
+      "id": "doormat",
+      "title": "Custom Doormats",
+      "category": ["fun"],
+      "year": 2022-2023
+      "thumbnail": "projects/doormat/images/thumbnail.jpg",
+      "tags": ["Laser", "Fire"],
+      "briefDescription": "Class to learn lots of tools & processes"
+    },
+    {
+      "id": "pressure-control",
+      "title": "Soft Robot Pressure Control Box ",
+      "category": ["research"],
+      "year": 2022
+      "thumbnail": "projects/pressure-control/images/thumbnail.jpg",
+      "tags": ["Pneumatics", "Laser"],
+      "briefDescription": "Pressure control and vents in a nice box"
+    },
+    {
       "id": "egg-gripper",
       "title": "Compliant Egg Gripper",
       "category": ["engineering", "highlights"],
       "year": 2022,
       "thumbnail": "projects/egg-gripper/images/thumbnail.jpg",
-      "tags": ["Design", "Flexure", "Materials"],
+      "tags": ["Design", "Flexure", "Laser"],
       "briefDescription": "A group homework project for my flexure design class"
     },
     {
       "id": "laser-pumpkin",
       "title": "Laser Etched Pumpkin",
-      "category": ["engineering", "fun"],
-      "year": 2023,
+      "category": ["fun"],
+      "year": 2022,
       "thumbnail": "projects/laser-pumpkin/images/thumbnail.jpg",
-      "tags": ["Laser Cutting", "Design"],
+      "tags": ["Laser Cutting", "Design", "Art"],
       "briefDescription": "Custom laser-etched design project"
     },
     {
       "id": "flexure-2dof",
       "title": "2 DOF Flexure",
       "category": ["engineering"],
-      "year": 2023,
+      "year": 2022,
       "thumbnail": "projects/flexure-2dof/images/thumbnail.jpg",
-      "tags": ["CAD", "FEA", "Mechanism Design"],
+      "tags": ["CAD", "Mechanism Design", "Precision"],
       "briefDescription": "Two degree of freedom flexure mechanism"
     },
     {
       "id": "kayak-welding",
       "title": "Kayak Plastic Welding",
-      "category": ["manufacturing", "research"],
-      "year": 2024,
+      "category": ["fun"],
+      "year": 2022,
       "thumbnail": "projects/kayak-welding/images/thumbnail.jpg",
       "tags": ["Welding", "Plastic", "Repair"],
       "briefDescription": "Research on plastic welding techniques"
