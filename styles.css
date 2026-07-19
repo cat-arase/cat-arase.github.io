@@ -263,25 +263,79 @@ li {
     padding: 0;
 }
 
+/* PUBLICATIONS STYLING */
 .publications-list li {
     margin-bottom: 1.5rem;
-    padding: 1rem;
+    padding: 1.5rem;
     background-color: #f5f5f5;
     border: 1px solid #e0e0e0;
 }
 
-.publications-list li strong {
+.publication-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.publication-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.publication-title {
     display: block;
     color: #1a1a1a;
+    font-weight: 600;
     margin-bottom: 0.5rem;
     font-size: 1rem;
 }
 
-.publications-list li p {
+.publication-meta {
     margin: 0;
     color: #666666;
     font-size: 0.95rem;
     line-height: 1.5;
+}
+
+.publication-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.pub-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    border: 2px solid #1a1a1a;
+    border-radius: 0px;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.pub-btn:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+@media (max-width: 800px) {
+    .publication-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .publication-buttons {
+        justify-content: flex-start;
+        width: 100%;
+    }
 }
 
 /* RESEARCH PROJECTS GRID */
