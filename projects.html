@@ -104,28 +104,44 @@
                 });
             }
             
-            // Build tag filter dropdown
+            // Build tag filter dropdown based on current category
             buildTagFilterDropdown();
             renderProjects();
         })
         .catch(error => console.error('Error loading projects:', error));
 
-    // Extract all unique tags and create dropdown
+    // Extract tags from filtered projects and create dropdown
     function buildTagFilterDropdown() {
         const allTags = new Set();
-        allProjects.forEach(project => {
+        
+        // Get projects for current category
+        let categoryProjects = allProjects;
+        if (currentFilter !== 'all') {
+            categoryProjects = allProjects.filter(p => {
+                const categories = Array.isArray(p.category) ? p.category : [p.category];
+                return categories.includes(currentFilter);
+            });
+        }
+        
+        // Extract tags from filtered projects
+        categoryProjects.forEach(project => {
             project.tags.forEach(tag => allTags.add(tag));
         });
 
         const dropdownContent = document.getElementById('dropdownContent');
         const sortedTags = Array.from(allTags).sort();
 
+        if (sortedTags.length === 0) {
+            dropdownContent.innerHTML = '<div class="dropdown-option disabled">No skills available</div>';
+            return;
+        }
+
         dropdownContent.innerHTML = sortedTags.map(tag => {
             return `<div class="dropdown-option" data-tag="${tag}">${tag}</div>`;
         }).join('');
 
         // Add click listeners to dropdown options
-        document.querySelectorAll('.dropdown-option').forEach(option => {
+        document.querySelectorAll('.dropdown-option:not(.disabled)').forEach(option => {
             option.addEventListener('click', function() {
                 const tag = this.dataset.tag;
                 addTag(tag);
@@ -207,6 +223,9 @@
             // Reset skill filters when category changes
             selectedTags = [];
             updateSelectedSkillsDisplay();
+            
+            // Rebuild dropdown with tags from the new category
+            buildTagFilterDropdown();
             
             console.log('Filter changed to:', currentFilter);
             renderProjects();
