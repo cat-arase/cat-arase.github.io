@@ -226,7 +226,7 @@ footer p {
 
 /* RESUME PAGE */
 .resume-container {
-    margin: 2rem 0;
+    margin: 2rem 0 4rem 0;
 }
 
 .resume-download-btn {
@@ -245,6 +245,14 @@ footer p {
 .resume-download-btn:hover {
     background-color: #ffffff;
     color: #1a1a1a;
+}
+
+.resume-viewer {
+    width: 100%;
+    min-height: 600px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
+    display: block;
 }
 
 /* PROJECTS PAGE */
