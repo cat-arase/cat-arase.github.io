@@ -429,39 +429,99 @@ footer p {
     color: #ffffff;
 }
 
-/* TAG FILTER BUTTONS */
+/* SKILL FILTER DROPDOWN */
 .filter-section {
     margin-bottom: 2rem;
 }
 
-.tag-filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
+.skill-filter-container {
+    margin-bottom: 1rem;
 }
 
-.tag-filter-btn {
-    padding: 6px 14px;
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    padding: 8px 20px;
     background-color: #f5f5f5;
-    border: 1px solid #e0e0e0;
+    border: 2px solid #e0e0e0;
     color: #1a1a1a;
     cursor: pointer;
-    font-weight: 400;
+    font-weight: 500;
     transition: all 0.3s;
     border-radius: 0px;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
 }
 
-.tag-filter-btn:hover {
+.dropdown-btn:hover {
     border-color: #000000;
     background-color: #ffffff;
 }
 
-.tag-filter-btn.active {
-    background-color: #1a1a1a;
-    color: #ffffff;
-    border-color: #1a1a1a;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    z-index: 1;
+    border: 1px solid #e0e0e0;
+    max-height: 300px;
+    overflow-y: auto;
+    top: 100%;
+    left: 0;
+    margin-top: 0.25rem;
+}
+
+.dropdown-option {
+    padding: 10px 16px;
+    cursor: pointer;
+    color: #1a1a1a;
+    transition: background-color 0.2s;
+}
+
+.dropdown-option:hover {
+    background-color: #f5f5f5;
+}
+
+/* SELECTED SKILLS DISPLAY */
+.selected-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.selected-skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    transition: all 0.2s;
+}
+
+.selected-skill-tag:hover {
+    border-color: #000000;
+    background-color: #ffffff;
+}
+
+.remove-tag {
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0.6;
+    margin-left: 0.25rem;
+}
+
+.remove-tag:hover {
+    opacity: 1;
 }
 
 /* Fabrication & Manufacturing Skills */
