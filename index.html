@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<head>
     <title>Cat Arase Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .highlighted-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+        }
+    </style>
 </head>
 <body>
     <!-- LOAD HEADER -->
@@ -28,83 +35,12 @@
         <!-- HIGHLIGHTED PROJECTS SECTION -->
         <h2 style="margin-top: 3rem;">Highlighted Projects</h2>
         
-        <div class="featured-project">
-            <span class="project-badge">🔬 MATERIALS TESTING</span>
-            <h3>Force vs Displacement Analysis</h3>
-            <p>Comprehensive materials characterization study analyzing the mechanical behavior of composite specimens under tensile loading. This project demonstrates my expertise in experimental design, data analysis, and technical visualization.</p>
-            
-            <p><strong>Key Achievements:</strong></p>
-            <ul>
-                <li>Tested 14 specimens across 3 distinct groups</li>
-                <li>Generated 3 publication-quality comparative plots</li>
-                <li>Developed automated Python data processing pipeline</li>
-                <li>Identified key performance variations for material selection</li>
-            </ul>
-            
-            <div class="project-tags">
-                <span class="tag">Python</span>
-                <span class="tag">Data Analysis</span>
-                <span class="tag">Matplotlib</span>
-                <span class="tag">Materials Science</span>
-            </div>
-            
-            <div>
-                <a href="projects.html" class="project-link">View All Projects →</a>
-                <a href="https://github.com/carase/force-displacement-plots" class="project-link">GitHub →</a>
-            </div>
-        </div>
-        
-        <div class="featured-project">
-            <span class="project-badge">🔧 MECHANICAL DESIGN</span>
-            <h3>Structural Component Design & Analysis</h3>
-            <p>Led the design and optimization of load-bearing mechanical components using modern CAD and FEA tools. This project showcases my ability to translate design requirements into robust engineering solutions.</p>
-            
-            <p><strong>Design Highlights:</strong></p>
-            <ul>
-                <li>Designed component meeting all performance specifications</li>
-                <li>Performed comprehensive stress and deflection analysis</li>
-                <li>Optimized geometry to reduce weight by 15%</li>
-                <li>Maintained safety factor > 2.0 throughout operating range</li>
-            </ul>
-            
-            <div class="project-tags">
-                <span class="tag">CAD Design</span>
-                <span class="tag">FEA</span>
-                <span class="tag">SolidWorks</span>
-                <span class="tag">Optimization</span>
-            </div>
-            
-            <div>
-                <a href="projects.html" class="project-link">View All Projects →</a>
-            </div>
-        </div>
-        
-        <div class="featured-project">
-            <span class="project-badge">📚 RESEARCH</span>
-            <h3>Published Research: Material Characterization</h3>
-            <p>Published research in the Journal of Engineering Materials presenting a novel methodology for comprehensive materials testing. This work demonstrates my ability to conduct rigorous research and communicate findings to the academic community.</p>
-            
-            <p><strong>Key Contributions:</strong></p>
-            <ul>
-                <li>Developed systematic testing methodologies</li>
-                <li>Provided quantitative analysis of failure mechanisms</li>
-                <li>Presented findings at ASME Conference 2024</li>
-                <li>Established framework for future research</li>
-            </ul>
-            
-            <div class="project-tags">
-                <span class="tag">Research</span>
-                <span class="tag">Publishing</span>
-                <span class="tag">Peer Review</span>
-            </div>
-            
-            <div>
-                <a href="research.html" class="project-link">View Research →</a>
-            </div>
+        <div class="highlighted-grid" id="highlightedGrid">
+            <!-- Projects will load here -->
         </div>
         
         <div style="text-align: center; margin: 3rem 0;">
-            <a href="projects.html" class="view-all-button">View All Featured Projects</a>
+            <a href="projects.html?category=highlights" class="back-link">View All Highlighted Projects →</a>
         </div>
     </div>
 
@@ -115,6 +51,36 @@
         fetch('footer.html')
             .then(response => response.text())
             .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+
+    <script>
+        // Load highlighted projects
+        fetch('projects-data.json')
+            .then(response => response.json())
+            .then(data => {
+                const projects = data.projects || data;
+                const highlighted = projects.filter(p => {
+                    const categories = Array.isArray(p.category) ? p.category : [p.category];
+                    return categories.includes('highlights');
+                });
+
+                const grid = document.getElementById('highlightedGrid');
+                grid.innerHTML = highlighted.map(project => `
+                    <a href="projects/${project.id}/${project.id}.html?category=highlights" class="project-thumbnail">
+                        <img src="${project.thumbnail}" alt="${project.title}" class="project-thumbnail-image">
+                        <div class="project-thumbnail-info">
+                            <div class="project-thumbnail-title">${project.title}</div>
+                            <div class="project-thumbnail-tags">
+                                ${project.tags.map(tag => {
+                                    const tagClass = 'tag-' + tag.toLowerCase().replace(/\s+/g, '-');
+                                    return `<span class="project-thumbnail-tag ${tagClass}">${tag}</span>`;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </a>
+                `).join('');
+            })
+            .catch(error => console.error('Error loading highlighted projects:', error));
     </script>
 </body>
 </html>
