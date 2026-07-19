@@ -31,11 +31,20 @@
             </div>
         </div>
 
-        <!-- TAG FILTER BUTTONS -->
+        <!-- TAG FILTER DROPDOWN -->
         <div class="filter-section">
-            <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: #666666;">By Skill</h3>
-            <div class="tag-filter-buttons" id="tagFilterButtons">
-                <!-- Tags will load here via JavaScript -->
+            <div class="skill-filter-container">
+                <div class="dropdown-wrapper">
+                    <button class="dropdown-btn" id="filterDropdown">Filter</button>
+                    <div class="dropdown-content" id="dropdownContent">
+                        <!-- Options will load here via JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SELECTED SKILLS -->
+            <div class="selected-skills" id="selectedSkills">
+                <!-- Selected skills will appear here -->
             </div>
         </div>
 
@@ -62,6 +71,7 @@
     let allProjects = [];
     let currentFilter = 'all';
     let selectedTags = [];
+    let dropdownOpen = false;
 
     // Read category from URL parameter on page load
     const params = new URLSearchParams(window.location.search);
@@ -94,62 +104,97 @@
                 });
             }
             
-            // Build tag filter buttons
-            buildTagFilters();
+            // Build tag filter dropdown
+            buildTagFilterDropdown();
             renderProjects();
         })
         .catch(error => console.error('Error loading projects:', error));
 
-    // Extract all unique tags and create filter buttons
-    function buildTagFilters() {
+    // Extract all unique tags and create dropdown
+    function buildTagFilterDropdown() {
         const allTags = new Set();
         allProjects.forEach(project => {
             project.tags.forEach(tag => allTags.add(tag));
         });
 
-        const tagContainer = document.getElementById('tagFilterButtons');
+        const dropdownContent = document.getElementById('dropdownContent');
         const sortedTags = Array.from(allTags).sort();
 
-        // Add "All Skills" button
-        tagContainer.innerHTML = `<button class="tag-filter-btn active" data-tag="all">All Skills</button>`;
+        dropdownContent.innerHTML = sortedTags.map(tag => {
+            return `<div class="dropdown-option" data-tag="${tag}">${tag}</div>`;
+        }).join('');
 
-        // Add individual tag buttons
-        sortedTags.forEach(tag => {
-            const btn = document.createElement('button');
-            btn.className = 'tag-filter-btn';
-            btn.textContent = tag;
-            btn.dataset.tag = tag;
-            btn.addEventListener('click', function() {
-                toggleTag(tag);
+        // Add click listeners to dropdown options
+        document.querySelectorAll('.dropdown-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const tag = this.dataset.tag;
+                addTag(tag);
+                closeDropdown();
             });
-            tagContainer.appendChild(btn);
         });
     }
 
-    // Toggle tag selection
-    function toggleTag(tag) {
-        const index = selectedTags.indexOf(tag);
-        if (index > -1) {
-            selectedTags.splice(index, 1);
-        } else {
-            selectedTags.push(tag);
-        }
+    // Dropdown toggle
+    document.getElementById('filterDropdown').addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleDropdown();
+    });
 
-        // Update button states
-        updateTagButtonStates();
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown-wrapper')) {
+            closeDropdown();
+        }
+    });
+
+    function toggleDropdown() {
+        dropdownOpen ? closeDropdown() : openDropdown();
+    }
+
+    function openDropdown() {
+        document.getElementById('dropdownContent').style.display = 'block';
+        dropdownOpen = true;
+    }
+
+    function closeDropdown() {
+        document.getElementById('dropdownContent').style.display = 'none';
+        dropdownOpen = false;
+    }
+
+    // Add a tag to selected tags
+    function addTag(tag) {
+        if (!selectedTags.includes(tag)) {
+            selectedTags.push(tag);
+            updateSelectedSkillsDisplay();
+            renderProjects();
+        }
+    }
+
+    // Remove a tag from selected tags
+    function removeTag(tag) {
+        selectedTags = selectedTags.filter(t => t !== tag);
+        updateSelectedSkillsDisplay();
         renderProjects();
     }
 
-    // Update visual state of tag buttons
-    function updateTagButtonStates() {
-        document.querySelectorAll('.tag-filter-btn').forEach(btn => {
-            const tag = btn.dataset.tag;
-            if (tag === 'all') {
-                btn.classList.toggle('active', selectedTags.length === 0);
-            } else {
-                btn.classList.toggle('active', selectedTags.includes(tag));
-            }
-        });
+    // Update the display of selected skills
+    function updateSelectedSkillsDisplay() {
+        const container = document.getElementById('selectedSkills');
+        
+        if (selectedTags.length === 0) {
+            container.innerHTML = '';
+            return;
+        }
+
+        container.innerHTML = selectedTags.map(tag => {
+            const tagClass = 'tag-' + tag.toLowerCase().replace(/\s+/g, '-');
+            return `
+                <div class="selected-skill-tag ${tagClass}" onclick="removeTag('${tag}')">
+                    ${tag}
+                    <span class="remove-tag">×</span>
+                </div>
+            `;
+        }).join('');
     }
 
     // Category filter button listeners
@@ -158,6 +203,11 @@
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             currentFilter = this.dataset.filter;
+            
+            // Reset skill filters when category changes
+            selectedTags = [];
+            updateSelectedSkillsDisplay();
+            
             console.log('Filter changed to:', currentFilter);
             renderProjects();
             
