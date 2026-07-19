@@ -15,7 +15,7 @@
       "category": ["fun", "classes"],
       "year": 2024,
       "thumbnail": "projects/metal-glass-lamps/images/thumbnail.jpg",
-      "tags": ["Design", "Welding", "CNC Plasma", "Teaching"],
+      "tags": ["Design", "Welding", "CNC Plasma", "Course Design"],
       "briefDescription": "Lamps made by me and students"
     },
     {
@@ -26,6 +26,51 @@
       "thumbnail": "projects/lathe/images/thumbnail.jpg",
       "tags": ["Design", "Precision ", "Machining", "CAD"],
       "briefDescription": "Lathe from 2.72"
+    },
+    {
+      "id": "wave",
+      "title": "The Wave",
+      "category": ["fun"],
+      "year": 2023,
+      "thumbnail": "projects/wave/images/thumbnail.jpg",
+      "tags": ["Laser", "Design ", "Art", "Gifts"],
+      "briefDescription": "Laser cut art for a friend"
+    },
+    {
+      "id": "tissue-box",
+      "title": "Tissue Box",
+      "category": ["fun", "teaching"],
+      "year": 2023,
+      "thumbnail": "projects/tissue-box/images/thumbnail.jpg",
+      "tags": ["Laser", "Design ", "Art"],
+      "briefDescription": "Laser cut art for a friend"
+    },
+    {
+      "id": "welcome-back-seth",
+      "title": "Welcome Back Sign",
+      "category": ["fun"],
+      "year": 2023,
+      "thumbnail": "projects/welcome-back-seth/images/thumbnail.jpg",
+      "tags": ["MIG Welding", "Hand Plasma", "Art", "Gift"],
+      "briefDescription": "Gift for a friend"
+    },
+    {
+      "id": "prop-axes",
+      "title": "Prop Axes",
+      "category": ["fun"],
+      "year": 2023,
+      "thumbnail": "projects/prop-axes/images/thumbnail.jpg",
+      "tags": ["CNC Router", "CAM", "Router Table"],
+      "briefDescription": "Prop axes for MIT’s Ukrainian Dance Club"
+    },
+    {
+      "id": "apron-hooks",
+      "title": "Apron Hooks",
+      "category": ["fun"],
+      "year": 2023,
+      "thumbnail": "projects/prop-axes/images/thumbnail.jpg",
+      "tags": ["MIG Welding", "Useful"],
+      "briefDescription": "New apron hooks for Metropolis"
     },
     {
       "id": "egg-gripper",
