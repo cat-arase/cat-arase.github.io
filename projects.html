@@ -18,14 +18,25 @@
     <div class="container">
         <h2>Projects</h2>
 
-        <!-- FILTER BUTTONS -->
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="highlights">Highlights</button>
-            <button class="filter-btn" data-filter="engineering">Engineering</button>
-            <button class="filter-btn" data-filter="research">Research</button>
-            <button class="filter-btn" data-filter="teaching">Teaching</button>
-            <button class="filter-btn" data-filter="fun">Fun</button>
+        <!-- CATEGORY FILTER BUTTONS -->
+        <div class="filter-section">
+            <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: #666666;">By Category</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="highlights">Highlights</button>
+                <button class="filter-btn" data-filter="engineering">Engineering</button>
+                <button class="filter-btn" data-filter="research">Research</button>
+                <button class="filter-btn" data-filter="teaching">Teaching</button>
+                <button class="filter-btn" data-filter="fun">Fun</button>
+            </div>
+        </div>
+
+        <!-- TAG FILTER BUTTONS -->
+        <div class="filter-section">
+            <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: #666666;">By Skill</h3>
+            <div class="tag-filter-buttons" id="tagFilterButtons">
+                <!-- Tags will load here via JavaScript -->
+            </div>
         </div>
 
         <!-- PROJECTS GRID -->
@@ -34,7 +45,7 @@
         </div>
 
         <div id="noProjects" class="no-projects" style="display:none;">
-            No projects found in this category.
+            No projects found matching your filters.
         </div>
     </div>
 
@@ -50,6 +61,7 @@
    <script>
     let allProjects = [];
     let currentFilter = 'all';
+    let selectedTags = [];
 
     // Read category from URL parameter on page load
     const params = new URLSearchParams(window.location.search);
@@ -82,11 +94,65 @@
                 });
             }
             
+            // Build tag filter buttons
+            buildTagFilters();
             renderProjects();
         })
         .catch(error => console.error('Error loading projects:', error));
 
-    // Filter button listeners
+    // Extract all unique tags and create filter buttons
+    function buildTagFilters() {
+        const allTags = new Set();
+        allProjects.forEach(project => {
+            project.tags.forEach(tag => allTags.add(tag));
+        });
+
+        const tagContainer = document.getElementById('tagFilterButtons');
+        const sortedTags = Array.from(allTags).sort();
+
+        // Add "All Skills" button
+        tagContainer.innerHTML = `<button class="tag-filter-btn active" data-tag="all">All Skills</button>`;
+
+        // Add individual tag buttons
+        sortedTags.forEach(tag => {
+            const btn = document.createElement('button');
+            btn.className = 'tag-filter-btn';
+            btn.textContent = tag;
+            btn.dataset.tag = tag;
+            btn.addEventListener('click', function() {
+                toggleTag(tag);
+            });
+            tagContainer.appendChild(btn);
+        });
+    }
+
+    // Toggle tag selection
+    function toggleTag(tag) {
+        const index = selectedTags.indexOf(tag);
+        if (index > -1) {
+            selectedTags.splice(index, 1);
+        } else {
+            selectedTags.push(tag);
+        }
+
+        // Update button states
+        updateTagButtonStates();
+        renderProjects();
+    }
+
+    // Update visual state of tag buttons
+    function updateTagButtonStates() {
+        document.querySelectorAll('.tag-filter-btn').forEach(btn => {
+            const tag = btn.dataset.tag;
+            if (tag === 'all') {
+                btn.classList.toggle('active', selectedTags.length === 0);
+            } else {
+                btn.classList.toggle('active', selectedTags.includes(tag));
+            }
+        });
+    }
+
+    // Category filter button listeners
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -104,7 +170,7 @@
     });
 
     function renderProjects() {
-        console.log('Rendering projects with filter:', currentFilter);
+        console.log('Rendering projects with category filter:', currentFilter, 'and tag filters:', selectedTags);
         console.log('Total projects available:', allProjects.length);
         
         const grid = document.getElementById('projectsGrid');
@@ -112,11 +178,19 @@
         
         let filteredProjects = allProjects;
 
+        // Filter by category
         if (currentFilter !== 'all') {
-            filteredProjects = allProjects.filter(p => {
+            filteredProjects = filteredProjects.filter(p => {
                 const categories = Array.isArray(p.category) ? p.category : [p.category];
-                console.log(`Project "${p.id}" categories:`, categories, 'includes filter?', categories.includes(currentFilter));
                 return categories.includes(currentFilter);
+            });
+        }
+
+        // Filter by selected tags (if any tags are selected)
+        if (selectedTags.length > 0) {
+            filteredProjects = filteredProjects.filter(p => {
+                // Project must have at least one of the selected tags
+                return selectedTags.some(tag => p.tags.includes(tag));
             });
         }
 
