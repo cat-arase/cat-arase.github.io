@@ -18,7 +18,16 @@
     <div class="container">
         <h2>Research</h2>
         
-        <p>Coming soon...</p>
+        <p>Here are my research projects and initiatives:</p>
+
+        <!-- RESEARCH PROJECTS GRID -->
+        <div class="projects-grid" id="researchGrid">
+            <!-- Research projects will load here via JavaScript -->
+        </div>
+
+        <div id="noResearch" class="no-projects" style="display:none;">
+            No research projects found.
+        </div>
     </div>
 
     <!-- LOAD FOOTER -->
@@ -28,6 +37,71 @@
         fetch('footer.html')
             .then(response => response.text())
             .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+
+    <script>
+        let allProjects = [];
+
+        // Load projects data
+        fetch('projects-data.json')
+            .then(response => {
+                console.log('Fetch response status:', response.status);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Projects data loaded:', data);
+                allProjects = data.projects || data;
+                console.log('All projects:', allProjects);
+                
+                renderResearchProjects();
+            })
+            .catch(error => console.error('Error loading projects:', error));
+
+        function renderResearchProjects() {
+            console.log('Rendering research projects');
+            console.log('Total projects available:', allProjects.length);
+            
+            const grid = document.getElementById('researchGrid');
+            const noResearch = document.getElementById('noResearch');
+            
+            // Filter for research projects
+            let researchProjects = allProjects.filter(p => {
+                const categories = Array.isArray(p.category) ? p.category : [p.category];
+                return categories.includes('research');
+            });
+
+            console.log('Research projects count:', researchProjects.length);
+
+            if (researchProjects.length === 0) {
+                grid.style.display = 'none';
+                noResearch.style.display = 'block';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            noResearch.style.display = 'none';
+
+            // Build project links
+            grid.innerHTML = researchProjects.map(project => {
+                return `
+                    <a href="projects/${project.id}/${project.id}.html" class="project-thumbnail">
+                        <img src="${project.thumbnail}" alt="${project.title}" class="project-thumbnail-image">
+                        <div class="project-thumbnail-info">
+                            <div class="project-thumbnail-title">${project.title}</div>
+                            <div class="project-thumbnail-tags">
+                                ${project.tags.map(tag => {
+                                    const tagClass = 'tag-' + tag.toLowerCase().replace(/\s+/g, '-');
+                                    return `<span class="project-thumbnail-tag ${tagClass}">${tag}</span>`;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+        }
     </script>
 </body>
 </html>
