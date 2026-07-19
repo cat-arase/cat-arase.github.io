@@ -94,7 +94,7 @@
       "id": "MIG-lamp",
       "title": "MIG Welded Lamp",
       "category": ["fun", "teaching"],
-      "year": 2023-2026,
+      "year": 2023,
       "thumbnail": "projects/MIG-lamp/images/thumbnail.jpg",
       "tags": ["MIG Welding", "Design"],
       "briefDescription": "MIG lamp as a demo for a class"
@@ -130,7 +130,7 @@
       "id": "doormat",
       "title": "Custom Doormats",
       "category": ["fun"],
-      "year": 2022-2023,
+      "year": 2022,
       "thumbnail": "projects/doormat/images/thumbnail.jpg",
       "tags": ["Laser", "Fire"],
       "briefDescription": "Class to learn lots of tools & processes"
