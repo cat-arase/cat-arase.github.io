@@ -455,7 +455,7 @@
       "title": "Pencil Holder",
       "category": ["fun"],
       "year": 2018,
-      "thumbnail": "projects/pencil-holder/thumbnail.jpg",
+      "thumbnail": "projects/pencil-holder/thumbnail.JPG",
       "tags": ["Laser Cutting", "Woodworking", "3D Printing", "Design"],
       "briefDescription": "Learn to use all the shop tools"
     },
@@ -464,7 +464,7 @@
       "title": "3D Printers & Early Design",
       "category": ["fun"],
       "year": 2018,
-      "thumbnail": "projects/3D-printers-and-early/thumbnail.JPG",
+      "thumbnail": "projects/3D-printers-and-early/thumbnail.jpg",
       "tags": ["Design", "3D Printing", "Personal Project"],
       "briefDescription": "Where I started"
     }
