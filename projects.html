@@ -63,232 +63,265 @@
             .then(data => document.getElementById('footer').innerHTML = data);
     </script>
 
-   <script>
-    let allProjects = [];
-    let currentFilter = 'all';
-    let selectedTags = [];
-    let dropdownOpen = false;
+    <script>
+        let allProjects = [];
+        let currentFilter = 'all';
+        let selectedTags = [];
+        let dropdownOpen = false;
 
-    // Read category from URL parameter on page load
-    const params = new URLSearchParams(window.location.search);
-    const urlCategory = params.get('category');
+        // Read category from URL parameter on page load
+        const params = new URLSearchParams(window.location.search);
+        const urlCategory = params.get('category');
 
-    // Load projects data
-    fetch('projects-data.json')
-        .then(response => {
-            console.log('Fetch response status:', response.status);
-            if (!response.ok) {
-                throw new Error(`Failed to fetch: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Projects data loaded:', data);
-            allProjects = data.projects || data;
-            console.log('All projects:', allProjects);
-            
-            // If URL has a category parameter, set it as the current filter
-            if (urlCategory) {
-                currentFilter = urlCategory;
+        // Load projects data
+        fetch('projects-data.json')
+            .then(response => {
+                console.log('Fetch response status:', response.status);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Projects data loaded:', data);
+                allProjects = data.projects || data;
+                console.log('All projects:', allProjects);
                 
-                // Activate the corresponding button
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.filter === urlCategory) {
-                        btn.classList.add('active');
-                    }
+                // If URL has a category parameter, set it as the current filter
+                if (urlCategory) {
+                    currentFilter = urlCategory;
+                    
+                    // Activate the corresponding button
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                        if (btn.dataset.filter === urlCategory) {
+                            btn.classList.add('active');
+                        }
+                    });
+                }
+                
+                // Build tag filter dropdown based on current category
+                buildTagFilterDropdown();
+                renderProjects();
+            })
+            .catch(error => console.error('Error loading projects:', error));
+
+        // Extract tags from filtered projects and create dropdown
+        function buildTagFilterDropdown() {
+            const allTags = new Set();
+            
+            // Get projects for current category
+            let categoryProjects = allProjects;
+            if (currentFilter !== 'all') {
+                categoryProjects = allProjects.filter(p => {
+                    const categories = Array.isArray(p.category) ? p.category : [p.category];
+                    return categories.includes(currentFilter);
                 });
             }
             
-            // Build tag filter dropdown based on current category
-            buildTagFilterDropdown();
-            renderProjects();
-        })
-        .catch(error => console.error('Error loading projects:', error));
+            // Extract tags from filtered projects
+            categoryProjects.forEach(project => {
+                project.tags.forEach(tag => allTags.add(tag));
+            });
 
-    // Extract tags from filtered projects and create dropdown
-    function buildTagFilterDropdown() {
-        const allTags = new Set();
-        
-        // Get projects for current category
-        let categoryProjects = allProjects;
-        if (currentFilter !== 'all') {
-            categoryProjects = allProjects.filter(p => {
-                const categories = Array.isArray(p.category) ? p.category : [p.category];
-                return categories.includes(currentFilter);
+            const dropdownContent = document.getElementById('dropdownContent');
+            const sortedTags = Array.from(allTags).sort();
+
+            if (sortedTags.length === 0) {
+                dropdownContent.innerHTML = '<div class="dropdown-option disabled">No skills available</div>';
+                return;
+            }
+
+            dropdownContent.innerHTML = sortedTags.map(tag => {
+                return `<div class="dropdown-option" data-tag="${tag}">${tag}</div>`;
+            }).join('');
+
+            // Add click listeners to dropdown options
+            document.querySelectorAll('.dropdown-option:not(.disabled)').forEach(option => {
+                option.addEventListener('click', function() {
+                    const tag = this.dataset.tag;
+                    addTag(tag);
+                    closeDropdown();
+                });
             });
         }
-        
-        // Extract tags from filtered projects
-        categoryProjects.forEach(project => {
-            project.tags.forEach(tag => allTags.add(tag));
-        });
 
-        const dropdownContent = document.getElementById('dropdownContent');
-        const sortedTags = Array.from(allTags).sort();
+        // Update dropdown with tags from currently visible projects
+        function updateDropdownWithFilteredTags(filteredProjects) {
+            const allTags = new Set();
+            
+            // Extract tags from currently filtered projects
+            filteredProjects.forEach(project => {
+                project.tags.forEach(tag => allTags.add(tag));
+            });
 
-        if (sortedTags.length === 0) {
-            dropdownContent.innerHTML = '<div class="dropdown-option disabled">No skills available</div>';
-            return;
+            const dropdownContent = document.getElementById('dropdownContent');
+            const sortedTags = Array.from(allTags).sort();
+
+            if (sortedTags.length === 0) {
+                dropdownContent.innerHTML = '<div class="dropdown-option disabled">No skills available</div>';
+                return;
+            }
+
+            dropdownContent.innerHTML = sortedTags.map(tag => {
+                return `<div class="dropdown-option" data-tag="${tag}">${tag}</div>`;
+            }).join('');
+
+            // Add click listeners to dropdown options
+            document.querySelectorAll('.dropdown-option:not(.disabled)').forEach(option => {
+                option.addEventListener('click', function() {
+                    const tag = this.dataset.tag;
+                    addTag(tag);
+                    closeDropdown();
+                });
+            });
         }
 
-        dropdownContent.innerHTML = sortedTags.map(tag => {
-            return `<div class="dropdown-option" data-tag="${tag}">${tag}</div>`;
-        }).join('');
+        // Dropdown toggle
+        document.getElementById('filterDropdown').addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleDropdown();
+        });
 
-        // Add click listeners to dropdown options
-        document.querySelectorAll('.dropdown-option:not(.disabled)').forEach(option => {
-            option.addEventListener('click', function() {
-                const tag = this.dataset.tag;
-                addTag(tag);
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown-wrapper')) {
                 closeDropdown();
-            });
+            }
         });
-    }
 
-    // Dropdown toggle
-    document.getElementById('filterDropdown').addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleDropdown();
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.dropdown-wrapper')) {
-            closeDropdown();
+        function toggleDropdown() {
+            dropdownOpen ? closeDropdown() : openDropdown();
         }
-    });
 
-    function toggleDropdown() {
-        dropdownOpen ? closeDropdown() : openDropdown();
-    }
+        function openDropdown() {
+            document.getElementById('dropdownContent').style.display = 'block';
+            dropdownOpen = true;
+        }
 
-    function openDropdown() {
-        document.getElementById('dropdownContent').style.display = 'block';
-        dropdownOpen = true;
-    }
+        function closeDropdown() {
+            document.getElementById('dropdownContent').style.display = 'none';
+            dropdownOpen = false;
+        }
 
-    function closeDropdown() {
-        document.getElementById('dropdownContent').style.display = 'none';
-        dropdownOpen = false;
-    }
+        // Add a tag to selected tags
+        function addTag(tag) {
+            if (!selectedTags.includes(tag)) {
+                selectedTags.push(tag);
+                updateSelectedSkillsDisplay();
+                renderProjects();
+            }
+        }
 
-    // Add a tag to selected tags
-    function addTag(tag) {
-        if (!selectedTags.includes(tag)) {
-            selectedTags.push(tag);
+        // Remove a tag from selected tags
+        function removeTag(tag) {
+            selectedTags = selectedTags.filter(t => t !== tag);
             updateSelectedSkillsDisplay();
             renderProjects();
         }
-    }
 
-    // Remove a tag from selected tags
-    function removeTag(tag) {
-        selectedTags = selectedTags.filter(t => t !== tag);
-        updateSelectedSkillsDisplay();
-        renderProjects();
-    }
-
-    // Update the display of selected skills
-    function updateSelectedSkillsDisplay() {
-        const container = document.getElementById('selectedSkills');
-        
-        if (selectedTags.length === 0) {
-            container.innerHTML = '';
-            return;
-        }
-
-        container.innerHTML = selectedTags.map(tag => {
-            const tagClass = 'tag-' + tag.toLowerCase().replace(/\s+/g, '-');
-            return `
-                <div class="selected-skill-tag ${tagClass}" onclick="removeTag('${tag}')">
-                    ${tag}
-                    <span class="remove-tag">×</span>
-                </div>
-            `;
-        }).join('');
-    }
-
-    // Category filter button listeners
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            currentFilter = this.dataset.filter;
+        // Update the display of selected skills
+        function updateSelectedSkillsDisplay() {
+            const container = document.getElementById('selectedSkills');
             
-            // Reset skill filters when category changes
-            selectedTags = [];
-            updateSelectedSkillsDisplay();
-            
-            // Rebuild dropdown with tags from the new category
-            buildTagFilterDropdown();
-            
-            console.log('Filter changed to:', currentFilter);
-            renderProjects();
-            
-            // Update URL without reloading the page
-            const newUrl = currentFilter === 'all' 
-                ? 'projects.html' 
-                : `projects.html?category=${currentFilter}`;
-            window.history.pushState({}, '', newUrl);
-        });
-    });
+            if (selectedTags.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
 
-    function renderProjects() {
-        console.log('Rendering projects with category filter:', currentFilter, 'and tag filters:', selectedTags);
-        console.log('Total projects available:', allProjects.length);
-        
-        const grid = document.getElementById('projectsGrid');
-        const noProjects = document.getElementById('noProjects');
-        
-        let filteredProjects = allProjects;
-
-        // Filter by category
-        if (currentFilter !== 'all') {
-            filteredProjects = filteredProjects.filter(p => {
-                const categories = Array.isArray(p.category) ? p.category : [p.category];
-                return categories.includes(currentFilter);
-            });
-        }
-
-        // Filter by selected tags (if any tags are selected)
-        if (selectedTags.length > 0) {
-            filteredProjects = filteredProjects.filter(p => {
-                // Project must have at least one of the selected tags
-                return selectedTags.some(tag => p.tags.includes(tag));
-            });
-        }
-
-        console.log('Filtered projects count:', filteredProjects.length);
-
-        if (filteredProjects.length === 0) {
-            grid.style.display = 'none';
-            noProjects.style.display = 'block';
-            return;
-        }
-
-        grid.style.display = 'grid';
-        noProjects.style.display = 'none';
-
-        // Build project links with category parameter
-        grid.innerHTML = filteredProjects.map(project => {
-            const categoryParam = currentFilter === 'all' ? '' : `?category=${currentFilter}`;
-            return `
-                <a href="projects/${project.id}/${project.id}.html${categoryParam}" class="project-thumbnail">
-                    <img src="${project.thumbnail}" alt="${project.title}" class="project-thumbnail-image">
-                    <div class="project-thumbnail-info">
-                        <div class="project-thumbnail-title">${project.title}</div>
-                        <div class="project-thumbnail-tags">
-                            ${project.tags.map(tag => {
-                                const tagClass = 'tag-' + tag.toLowerCase().replace(/\s+/g, '-');
-                                return `<span class="project-thumbnail-tag ${tagClass}">${tag}</span>`;
-                            }).join('')}
-                        </div>
+            container.innerHTML = selectedTags.map(tag => {
+                const tagClass = 'tag-' + tag.toLowerCase().replace(/\s+/g, '-');
+                return `
+                    <div class="selected-skill-tag ${tagClass}" onclick="removeTag('${tag}')">
+                        ${tag}
+                        <span class="remove-tag">×</span>
                     </div>
-                </a>
-            `;
-        }).join('');
-    }
-</script>
+                `;
+            }).join('');
+        }
+
+        // Category filter button listeners
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                
+                // Reset skill filters when category changes
+                selectedTags = [];
+                updateSelectedSkillsDisplay();
+                
+                // Rebuild dropdown with tags from the new category
+                buildTagFilterDropdown();
+                
+                console.log('Filter changed to:', currentFilter);
+                renderProjects();
+                
+                // Update URL without reloading the page
+                const newUrl = currentFilter === 'all' 
+                    ? 'projects.html' 
+                    : `projects.html?category=${currentFilter}`;
+                window.history.pushState({}, '', newUrl);
+            });
+        });
+
+        function renderProjects() {
+            console.log('Rendering projects with category filter:', currentFilter, 'and tag filters:', selectedTags);
+            console.log('Total projects available:', allProjects.length);
+            
+            const grid = document.getElementById('projectsGrid');
+            const noProjects = document.getElementById('noProjects');
+            
+            let filteredProjects = allProjects;
+
+            // Filter by category
+            if (currentFilter !== 'all') {
+                filteredProjects = filteredProjects.filter(p => {
+                    const categories = Array.isArray(p.category) ? p.category : [p.category];
+                    return categories.includes(currentFilter);
+                });
+            }
+
+            // Filter by selected tags using AND logic (ALL selected tags must be present)
+            if (selectedTags.length > 0) {
+                filteredProjects = filteredProjects.filter(p => {
+                    return selectedTags.every(tag => p.tags.includes(tag));
+                });
+            }
+
+            // Update dropdown with tags from currently visible projects
+            updateDropdownWithFilteredTags(filteredProjects);
+
+            console.log('Filtered projects count:', filteredProjects.length);
+
+            if (filteredProjects.length === 0) {
+                grid.style.display = 'none';
+                noProjects.style.display = 'block';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            noProjects.style.display = 'none';
+
+            // Build project links with category parameter
+            grid.innerHTML = filteredProjects.map(project => {
+                const categoryParam = currentFilter === 'all' ? '' : `?category=${currentFilter}`;
+                return `
+                    <a href="projects/${project.id}/${project.id}.html${categoryParam}" class="project-thumbnail">
+                        <img src="${project.thumbnail}" alt="${project.title}" class="project-thumbnail-image">
+                        <div class="project-thumbnail-info">
+                            <div class="project-thumbnail-title">${project.title}</div>
+                            <div class="project-thumbnail-tags">
+                                ${project.tags.map(tag => {
+                                    const tagClass = 'tag-' + tag.toLowerCase().replace(/\s+/g, '-');
+                                    return `<span class="project-thumbnail-tag ${tagClass}">${tag}</span>`;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+        }
+    </script>
 </body>
 </html>
