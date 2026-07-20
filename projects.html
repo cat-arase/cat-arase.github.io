@@ -107,35 +107,37 @@
             .catch(error => console.error('Error loading projects:', error));
 
         // Extract tags from filtered projects and create dropdown
-        function buildTagFilterDropdown() {
-            const allTags = new Set();
-            
-            // Get projects for current category
-            let categoryProjects = allProjects;
-            if (currentFilter !== 'all') {
-                categoryProjects = allProjects.filter(p => {
-                    const categories = Array.isArray(p.category) ? p.category : [p.category];
-                    return categories.includes(currentFilter);
-                });
-            }
-            
+function buildTagFilterDropdown() {
+    const allTags = new Set();
+    
+    // Get projects for current category
+    let categoryProjects = allProjects;
+    if (currentFilter !== 'all') {
+        categoryProjects = allProjects.filter(p => {
+            const categories = Array.isArray(p.category) ? p.category : [p.category];
+            return categories.includes(currentFilter);
+        });
+    }
+    
             // Extract tags from filtered projects
             categoryProjects.forEach(project => {
                 project.tags.forEach(tag => allTags.add(tag));
             });
-
+        
+            // Remove already selected tags from dropdown
+            const availableTags = Array.from(allTags).filter(tag => !selectedTags.includes(tag)).sort();
+        
             const dropdownContent = document.getElementById('dropdownContent');
-            const sortedTags = Array.from(allTags).sort();
-
-            if (sortedTags.length === 0) {
+        
+            if (availableTags.length === 0) {
                 dropdownContent.innerHTML = '<div class="dropdown-option disabled">No skills available</div>';
                 return;
             }
-
-            dropdownContent.innerHTML = sortedTags.map(tag => {
+        
+            dropdownContent.innerHTML = availableTags.map(tag => {
                 return `<div class="dropdown-option" data-tag="${tag}">${tag}</div>`;
             }).join('');
-
+        
             // Add click listeners to dropdown options
             document.querySelectorAll('.dropdown-option:not(.disabled)').forEach(option => {
                 option.addEventListener('click', function() {
@@ -145,7 +147,7 @@
                 });
             });
         }
-
+        
         // Update dropdown with tags from currently visible projects
         function updateDropdownWithFilteredTags(filteredProjects) {
             const allTags = new Set();
@@ -154,19 +156,21 @@
             filteredProjects.forEach(project => {
                 project.tags.forEach(tag => allTags.add(tag));
             });
-
+        
+            // Remove already selected tags from dropdown
+            const availableTags = Array.from(allTags).filter(tag => !selectedTags.includes(tag)).sort();
+        
             const dropdownContent = document.getElementById('dropdownContent');
-            const sortedTags = Array.from(allTags).sort();
-
-            if (sortedTags.length === 0) {
+        
+            if (availableTags.length === 0) {
                 dropdownContent.innerHTML = '<div class="dropdown-option disabled">No skills available</div>';
                 return;
             }
-
-            dropdownContent.innerHTML = sortedTags.map(tag => {
+        
+            dropdownContent.innerHTML = availableTags.map(tag => {
                 return `<div class="dropdown-option" data-tag="${tag}">${tag}</div>`;
             }).join('');
-
+        
             // Add click listeners to dropdown options
             document.querySelectorAll('.dropdown-option:not(.disabled)').forEach(option => {
                 option.addEventListener('click', function() {
