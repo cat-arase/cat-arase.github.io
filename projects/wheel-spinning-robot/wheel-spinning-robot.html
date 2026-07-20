@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wheel Spinning Robot - Cat Arase Portfolio</title>
 
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .project-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin: 2rem 0;
+        }
+
+        .project-header > div:first-child {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .project-header-image {
+            width: 100%;
+            height: auto;
+            background-color: #e0e0e0;
+        }
+
+        .project-info h3 {
+            color: #1a1a1a;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .project-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #000000;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #000000;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            opacity: 0.6;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .image-grid-item {
+            text-align: center;
+        }
+
+        .image-grid-item img,
+        .image-grid-item video {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            background-color: #e0e0e0;
+        }
+
+        .image-caption {
+            font-size: 0.95rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: 0.75rem;
+            padding: 0 0.5rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body data-project="wheel-spinning-robot">
+    <!-- LOAD HEADER -->
+    <div id="header"></div>
+
+    <script>
+        fetch('../../header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">        
+        <div class="project-title-row">
+            <div id="project-prev" class="project-nav-slot"></div>
+            <div id="project-category"></div>
+            <div id="project-next" class="project-nav-slot"></div>
+        </div>
+        
+        <h2>Wheel Spinning Robot (2020)</h2>
+        <div id="project-tags" class="project-tags-container"></div>
+
+
+        <div class="project-header">
+            <div>
+                <img src="thumbnail.jpg" alt="CAD of robot" class="project-header-image">
+                <div class="image-caption">Robot CAD</div>
+            </div>
+
+            <div class="project-info">
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li>CAD</li>
+                    <li>Modeling</li>
+                    <li>Gearbox</li>
+                </ul>
+                
+                <h3>Description</h3>
+                <p>This robot was designed for MIT course 2.007, Design & Manufacturing I. This robot was designed to spin a wheel as fast as possible. The wheel had a large flywheel on the back, so required a lot of torque to get it up to speed. The robot used 3 motors with a 1:1 gear ratio to spin the wheel. Unfortunately, the semester was cut short due to COVID-19, so I finished it in CAD and never got the chance to assemble the full robot.</p>
+                  
+                <h3>Lessons Learned</h3>
+                <p>I learned a lot about Solidworks sheet metal tools for this project. With my first prototype, I also learned that things don’t always work as they are expected to on paper.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">Project Images</h3>
+        
+        <div class="image-grid">
+            <div class="image-grid-item">
+                <video controls>
+                    <source src="gearbox.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="image-caption">Gearbox built before we were sent home</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="Cad2.jpg" alt="Prototype Version 1">
+                <div class="image-caption">Cross section view of gearbox assembly</div>
+            </div>
+
+            <div class="image-grid-item">
+                <video controls>
+                    <source src="mini-mi-ball.m4v" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="image-caption">Mini robot moving around a ball with remote control</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="early-iteration.jpg" alt="First print">
+                <div class="image-caption">Early version of the gearbox with different peg sizes for experimentation</div>
+            </div>
+
+
+             <div class="image-grid-item">
+                <video controls>
+                    <source src="mini-mi-drive.m4v" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="image-caption">Mini robot autonomously going around a hole</div>
+            </div>
+
+
+        </div>
+        <script>
+            fetch('/projects-data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const projects = data.projects || data;
+                    const currentProject = projects.find(p => p.id === 'wheel-spinning-robot');
+                    
+                    if (currentProject && currentProject.tags) {
+                        const tagsDiv = document.getElementById('project-tags');
+                        tagsDiv.innerHTML = currentProject.tags.map(tag => {
+                            const tagClass = 'tag-' + tag.toLowerCase().replace(/\s+/g, '-');
+                            return `<span class="project-thumbnail-tag ${tagClass}">${tag}</span>`;
+                        }).join('');
+                    }
+                });
+        </script>
+    </div>
+
+
+    <div id="project-nav"></div>
+    <script src="/project-nav.js"></script>
+    
+    <!-- LOAD FOOTER -->
+    <div id="footer"></div>
+
+    <script>
+        fetch('../../footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
