@@ -72,13 +72,24 @@
         }
 
         .image-grid-item:nth-child(3) {
-        grid-column: 1 / -1;
-        display: flex;
-        justify-content: center;
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
         }
 
         .image-grid-item:nth-child(3) video {
             max-width: 600px;
+        }
+
+        .image-grid-item embed,
+        .image-grid-item iframe {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            display: block;
+            margin: 0 auto;
+            background-color: #e0e0e0;
+            border: none;
         }
 
         .image-caption {
@@ -121,8 +132,10 @@
 
             <div class="project-info">
                 <h3>Description</h3>
-            <p>This is the projcet from my product design senior capstone class. Vulcan is a butane powered, hand held, wire-to-wire soldering device. This was my team’s final project for my capstone product design class. I was responsible for many parts of the solder feed mechanism (solder feed tubes, axels for the gears, pulley, and more) as well as general team dynamics and project management. </p>
-              <h3>Lessons Learned</h3>
+                <p>This is the projcet from my product design senior capstone class. Vulcan is a butane powered, hand held, wire-to-wire soldering device. This was my team's final project for my capstone product design class. I was responsible for many parts of the solder feed mechanism (solder feed tubes, axels for the gears, pulley, and more) as well as general team dynamics and project management. </p>
+                <p>Because this work comes from my capstone product design class, a lot of work went into prototypes that were not the final version of this project. At one point, we were exploring a system for putting out electric vehicle fires and I was responsible for some of those early prototypes. Before settling on using fuel for the soldering mechanism, I spent a lot of time designing a PCB for the device to be electrically powered. Ultimetly, fuel power was a better decision for the device because of enegry density.</p>
+                
+                <h3>Lessons Learned</h3>
             <p>I learned a lot about working with other people and general project management. I also learned a decent amount on rapid prototyping and how to effectively budget. I also got significantly better at making shafts with slots on the lathe.</p>
             </div>
         </div>
@@ -134,7 +147,16 @@
                 <img src="wheel.jpg" alt="wheel">
                 <div class="image-caption">The wheel after it had ripped itself in half</div>
             </div>
-          
+
+            <div class="image-grid-item">
+                <embed src="slides.pdf" type="application/pdf">
+                <div class="image-caption">PDF Document 1</div>
+            </div>
+
+            <div class="image-grid-item">
+                <embed src="brochure.pdf" type="application/pdf">
+                <div class="image-caption">PDF Document 2</div>
+            </div>
         </div>
         <script>
             fetch('/projects-data.json')
