@@ -71,33 +71,39 @@
             background-color: #e0e0e0;
         }
 
-        .image-grid-item:nth-child(3) {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .image-grid-item:nth-child(3) video {
-            max-width: 600px;
-        }
-
-        .image-grid-item embed,
-        .image-grid-item iframe {
-            width: 100%;
-            max-width: 400px;
-            height: 500px;
-            display: block;
-            margin: 0 auto;
-            background-color: #e0e0e0;
-            border: none;
-        }
-
         .image-caption {
             font-size: 0.95rem;
             color: #666666;
             font-style: italic;
             margin-top: 0.75rem;
             padding: 0 0.5rem;
+            line-height: 1.6;
+        }
+
+        .pdf-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .pdf-item {
+            width: 100%;
+            text-align: center;
+        }
+
+        .pdf-item embed {
+            width: 100%;
+            height: 600px;
+            border: none;
+            background-color: #e0e0e0;
+        }
+
+        .pdf-caption {
+            font-size: 0.95rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: 0.75rem;
             line-height: 1.6;
         }
     </style>
@@ -126,8 +132,8 @@
 
         <div class="project-header">
             <div>
-                <img src="hero.jpg" alt="Giant duck" class="project-header-image">
-                <div class="image-caption">Giant duck build</div>
+                <img src="thumbnail.jpg" alt="vulcan" class="project-header-image">
+                <div class="image-caption">Final prototype of Vulcan</div>
             </div>
 
             <div class="project-info">
@@ -136,7 +142,7 @@
                 <p>Because this work comes from my capstone product design class, a lot of work went into prototypes that were not the final version of this project. At one point, we were exploring a system for putting out electric vehicle fires and I was responsible for some of those early prototypes. Before settling on using fuel for the soldering mechanism, I spent a lot of time designing a PCB for the device to be electrically powered. Ultimetly, fuel power was a better decision for the device because of enegry density.</p>
                 
                 <h3>Lessons Learned</h3>
-            <p>I learned a lot about working with other people and general project management. I also learned a decent amount on rapid prototyping and how to effectively budget. I also got significantly better at making shafts with slots on the lathe.</p>
+                <p>I learned a lot about working with other people and general project management. I also learned a decent amount on rapid prototyping and how to effectively budget. I also got significantly better at making shafts with slots on the lathe.</p>
             </div>
         </div>
 
@@ -144,20 +150,125 @@
         
         <div class="image-grid">
             <div class="image-grid-item">
-                <img src="wheel.jpg" alt="wheel">
-                <div class="image-caption">The wheel after it had ripped itself in half</div>
+                <img src="final-device.jpg" alt="side view">
+                <div class="image-caption">Side view of the final prototype</div>
             </div>
 
             <div class="image-grid-item">
-                <embed src="slides.pdf" type="application/pdf">
-                <div class="image-caption">PDF Document 1</div>
+                <img src="in-use-final.jpg" alt="image2">
+                <div class="image-caption">Vulcan in use</div>
             </div>
 
             <div class="image-grid-item">
-                <embed src="brochure.pdf" type="application/pdf">
-                <div class="image-caption">PDF Document 2</div>
+                <img src="on-stage.jpg" alt="image3">
+                <div class="image-caption">Device on stage at the final presentation</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="taken-apart.jpg" alt="image4">
+                <div class="image-caption">Vulcan taken apart</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="prototypes-1.jpg" alt="image5">
+                <div class="image-caption">Various prototypes put together</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="prototypes-2.jpg" alt="image6">
+                <div class="image-caption">Prototypes laid out on the table at various stages</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="group-pic-1.jpg" alt="image7">
+                <div class="image-caption">Full team at the final presentation</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="having-fun.jpg" alt="image8">
+                <div class="image-caption">Having fun with team spirit!</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="hello.jpg" alt="image9">
+                <div class="image-caption">Stage for the final presentation</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="build-day.jpeg" alt="image10">
+                <div class="image-caption">Having fun on build day for team bonding</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="butane-prototype-1.jpg" alt="image11">
+                <div class="image-caption">Larger version of the final prototype using butane power</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="butane-prototype-2.jpg" alt="image12">
+                <div class="image-caption">Larger version of the final prototype using butane power, showing the clamping mechanism</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="electrical-1.jpg" alt="image13">
+                <div class="image-caption">Electrical version of the prototype</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="electrical-2.jpg" alt="image14">
+                <div class="image-caption">Electrical version of the prototype</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="PCB-render.jpg" alt="image15">
+                <div class="image-caption">A rendering of the PCB board for the elecrtical prototype before we switched to butane</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="mock-up.jpg" alt="image16">
+                <div class="image-caption">Fun picture at mock up when we all needed more sleep</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="building-sprinkler.jpg" alt="image17">
+                <div class="image-caption">Building the EV sprinkler prototype. We droped the idea because it wasn't the right type of project for the class</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="building-sprinkler-2.jpg" alt="image18">
+                <div class="image-caption">Building the EV sprinkler prototype. We droped the idea because it wasn't the right type of project for the class. Firefighetrs also had some doubts on usefulness. The system would need higher water pressure than was easily availble.</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="purpleA2_1.jpg" alt="image19">
+                <div class="image-caption">Heating to simulate the start of thermal runaway of a battery on the sprinkler prototype</div>
+            </div>
+
+            <div class="image-grid-item">
+                <img src="purpleA2_2.jpg" alt="image20">
+                <div class="image-caption">Sprinkler system triggering</div>
             </div>
         </div>
+
+        <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">Documents</h3>
+
+        <div class="pdf-container">
+            <div class="pdf-item">
+                <embed src="brochure.pdf" type="application/pdf">
+                <div class="pdf-caption">Brochure from final presentation for Vulcan</div>
+            </div>
+
+            <div class="pdf-item">
+                <embed src="slides.pdf" type="application/pdf">
+                <div class="pdf-caption">Slides from final presentation</div>
+            </div>
+
+            <div class="pdf-item">
+                <embed src="document3.pdf" type="application/pdf">
+                <div class="pdf-caption">Some of my ideation sketches</div>
+            </div>
+        </div>
+
         <script>
             fetch('/projects-data.json')
                 .then(response => response.json())
