@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
     <title>Hammering Robot - Cat Arase Portfolio</title>
@@ -70,7 +70,6 @@
             background-color: #e0e0e0;
         }
 
-
         .image-caption {
             font-size: 0.95rem;
             color: #666666;
@@ -81,7 +80,7 @@
         }
     </style>
 </head>
-<body data-project="go-forth">
+<body data-project="hammering-robot">
     <!-- LOAD HEADER -->
     <div id="header"></div>
 
@@ -105,32 +104,38 @@
 
         <div class="project-header">
             <div>
-                <img src="hero.jpg" alt="cell" class="project-header-image">
-                <div class="image-caption">Final poster</div>
+                <img src="thumbnail.jpg" alt="Robot" class="project-header-image">
+                <div class="image-caption">Robot</div>
             </div>
 
             <div class="project-info">
                 <h3>Description</h3>
-                  <p>Build a bio-inspired robot that hammers to determine the optimal hammering path for a biomimetics class. This robot uses impedance control with various set trajectories to hit a target. The target is a vernier force sensor that works with the lab quest mini and logger pro to measure the force at impact. The robot is a 3 degree of freedom arm, but uses a passive joint for the hammer. It was part of a group project. I primarily did the hardware and animation.</p>
-              <h3>Lessons Learned</h3>
-              <p>I learned a lot about different control schemes in this class. I also learned a decent amount about finishing 3D printed parts. In the robot showcase, our hammering ball flew off. I learned that we should have used a helicoil to prevent this in the future.</p>
+                <p>This is a bio-inspired robot that hammers to determine the optimal hammering path I made as part of a group for a class. This robot uses impedance control with various set trajectories to hit a target. The target is a vernier force sensor that works with the lab quest mini and logger pro to measure the force at impact. The robot is a 3 degree of freedom arm, but uses a passive joint for the hammer. It was part of a group project. I primarily did the hardware and animation.</p>                  
+                <h3>Lessons Learned</h3>
+                <p>I learned a lot about different control schemes in this class. I also learned a decent amount about finishing 3D printed parts. In the robot showcase, our hammering ball flew off. I learned that we should have used a helicoil to prevent this in the future.</p>
             </div>
         </div>
 
         <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">Project Images</h3>
         
-<div class="image-grid">  <!-- ← ADD THIS -->
+        <div class="image-grid">
 
-          <div class="image-grid-item">
-                <img src="compliance.jpg" alt="Compliance of springs vs pullback distance for the cars">
-                <div class="image-caption">Compliance of springs vs pullback distance for the cars</div>
+            <div class="image-grid-item">
+                <img src="hammeringrobotillustrator.jpg" alt="Poster graphic">
+                <div class="image-caption">Poster graphic from illustrator</div>
             </div>
 
-          <div class="image-grid-item">
-                <img src="trial.jpg" alt="data">
-                <div class="image-caption">Data from one trial of one car</div>
+
+            
+            <div class="image-grid-item">
+                <video controls>
+                    <source src="hammer-vid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="image-caption">Video of hammering robot in action</div>
             </div>
-          
+
+
         </div>
         <script>
             fetch('/projects-data.json')
